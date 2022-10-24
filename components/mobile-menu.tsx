@@ -25,7 +25,7 @@ const MobileMenu = (): JSX.Element => {
   return (
     <>
       <button
-        className="visible burger md:hidden"
+        className="burger visible md:hidden"
         aria-label="Toggle menu"
         type="button"
         onClick={toggleMenu}

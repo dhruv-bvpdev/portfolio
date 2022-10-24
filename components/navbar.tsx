@@ -12,7 +12,7 @@ const Navbar = (): JSX.Element => {
   const { theme, setTheme } = useTheme()
 
   return (
-    <nav className="sticky top-0 z-50 flex items-center justify-between w-full max-w-4xl p-4 mx-auto my-0 text-gray-900 md:p-8 bg-gray-50 sticky-nav md:my-8 dark:bg-gray-900 dark:text-gray-100">
+    <nav className="sticky-nav sticky top-0 z-50 flex items-center justify-between w-full max-w-4xl p-4 mx-auto my-0 text-gray-900 md:p-8 bg-gray-50 md:my-8 dark:bg-gray-900 dark:text-gray-100">
       <div>
         <MobileMenu />
         <div className="md:w-0">
@@ -21,7 +21,7 @@ const Navbar = (): JSX.Element => {
               id="nav-home"
               className="invisible m-1 text-gray-900 sm:m-4 dark:text-gray-100 md:visible"
             >
-              <span className="py-1 dark:link-underline link-underline-black">
+              <span className="dark:link-underline link-underline-black py-1">
                 Home
               </span>
             </a>
@@ -31,7 +31,7 @@ const Navbar = (): JSX.Element => {
               id="nav-about"
               className="invisible m-1 text-gray-900 sm:m-4 dark:text-gray-100 md:visible"
             >
-              <span className="py-1 dark:link-underline link-underline-black">
+              <span className="dark:link-underline link-underline-black py-1">
                 About
               </span>
             </a>
@@ -41,7 +41,7 @@ const Navbar = (): JSX.Element => {
               id="nav-projects"
               className="invisible m-1 text-gray-900 sm:m-4 dark:text-gray-100 md:visible"
             >
-              <span className="py-1 dark:link-underline link-underline-black">
+              <span className="dark:link-underline link-underline-black py-1">
                 Projects
               </span>
             </a>

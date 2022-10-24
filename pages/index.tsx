@@ -7,7 +7,7 @@ export default function Index(): JSX.Element {
   return (
     <Layout>
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
-        <div className="mx-auto mb-16 w-41 h-41">
+        <div className="w-41 h-41 mx-auto mb-16">
           <Image
             className="rounded-full"
             src={profilePic}
