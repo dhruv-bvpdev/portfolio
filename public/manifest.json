@@ -1,0 +1,10 @@
+{
+    "name": "Dhruv Gursahani",
+    "Scope": "/",
+    "start-url": "/",
+    "background_color": "#fff",
+    "theme_color": "#000",
+    "short_name": "Dhruv",
+    "display": "standalone",
+    "orientation": "portrait"
+}
