@@ -1,24 +1,24 @@
-import { useState } from 'react'
-import { useRouter } from 'next/router'
-import Link from 'next/link'
-import MenuIcon from '@/components/icons/menu-icon'
-import CrossIcon from '@/components/icons/cross-icon'
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import MenuIcon from '@/components/icons/menu-icon';
+import CrossIcon from '@/components/icons/cross-icon';
 
 const MobileMenu = (): JSX.Element => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const router = useRouter()
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
 
   function scrollTo(event: { preventDefault: () => void }, anchor: string) {
-    event && event.preventDefault()
-    router.push('/#' + anchor)
-    setIsMenuOpen(false)
+    event && event.preventDefault();
+    router.push('/#' + anchor);
+    setIsMenuOpen(false);
   }
 
   function toggleMenu() {
     if (isMenuOpen) {
-      setIsMenuOpen(false)
+      setIsMenuOpen(false);
     } else {
-      setIsMenuOpen(true)
+      setIsMenuOpen(true);
     }
   }
 
@@ -80,7 +80,7 @@ const MobileMenu = (): JSX.Element => {
         </li>
       </ul>
     </>
-  )
-}
+  );
+};
 
-export default MobileMenu
+export default MobileMenu;

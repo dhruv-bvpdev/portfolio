@@ -1,18 +1,18 @@
-import useSWR from 'swr'
-import type { Projects } from '@/lib/types'
-import fetcher from '@/lib/fetcher'
+import useSWR from 'swr';
+import type { Projects } from '@/lib/types';
+import fetcher from '@/lib/fetcher';
 
 const Project = (): JSX.Element => {
   const { data, error } = useSWR<Projects[]>(
     'https://api.github.com/users/dhruv-bvpdev/repos',
     fetcher
-  )
+  );
 
   if (error) {
-    return <div>Failed to load</div>
+    return <div>Failed to load</div>;
   }
   if (!data) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   return (
@@ -37,7 +37,7 @@ const Project = (): JSX.Element => {
         </div>
       ))}
     </>
-  )
-}
+  );
+};
 
-export default Project
+export default Project;

@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import ExternalLink from './link-external'
+import Link from 'next/link';
+import ExternalLink from './link-external';
 
 export default function Footer(): JSX.Element {
   return (
@@ -56,5 +56,5 @@ export default function Footer(): JSX.Element {
         </p>
       </footer>
     </div>
-  )
+  );
 }

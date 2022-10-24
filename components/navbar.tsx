@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import Link from 'next/link'
-import { useTheme } from 'next-themes'
-import MobileMenu from '@/components/mobile-menu'
-import ThemeToggleIcon from './icons/theme-icon'
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { useTheme } from 'next-themes';
+import MobileMenu from '@/components/mobile-menu';
+import ThemeToggleIcon from './icons/theme-icon';
 
 const Navbar = (): JSX.Element => {
-  const [mounted, setMounted] = useState(false)
-  useEffect(() => setMounted(true), [])
-  const router = useRouter()
-  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const router = useRouter();
+  const { theme, setTheme } = useTheme();
 
   return (
     <nav className="sticky top-0 z-50 flex items-center justify-between w-full max-w-4xl p-4 md:p-8 mx-auto my-0 text-gray-900 bg-gray-50 sticky-nav md:my-8 dark:bg-gray-900 dark:text-gray-100">
@@ -62,7 +62,7 @@ const Navbar = (): JSX.Element => {
         )}
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

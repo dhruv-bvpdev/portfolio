@@ -1,6 +1,6 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
-import Layout from '@/components/layout'
+import Layout from '@/components/layout';
 
 export default function NotFound(): JSX.Element {
   return (
@@ -22,5 +22,5 @@ export default function NotFound(): JSX.Element {
         </Link>
       </div>
     </Layout>
-  )
+  );
 }

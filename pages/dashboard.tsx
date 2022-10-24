@@ -1,16 +1,16 @@
-import useSWR from 'swr'
-import Layout from '@/components/layout'
-import fetcher from '@/lib/fetcher'
-import { healthData } from '@/lib/types'
+import useSWR from 'swr';
+import Layout from '@/components/layout';
+import fetcher from '@/lib/fetcher';
+import { healthData } from '@/lib/types';
 
 export default function Dashboard(): JSX.Element {
-  const { data, error } = useSWR<healthData>('/api/health', fetcher)
+  const { data, error } = useSWR<healthData>('/api/health', fetcher);
 
   if (error) {
-    return <div>Failed to load</div>
+    return <div>Failed to load</div>;
   }
   if (!data) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   return (
@@ -110,5 +110,5 @@ export default function Dashboard(): JSX.Element {
         </div>
       </div>
     </Layout>
-  )
+  );
 }

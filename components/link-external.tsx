@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode } from 'react';
 
 const ExternalLink = ({
   href,
@@ -15,6 +15,6 @@ const ExternalLink = ({
   >
     {children}
   </a>
-)
+);
 
-export default ExternalLink
+export default ExternalLink;
