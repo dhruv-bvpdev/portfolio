@@ -23,7 +23,7 @@ const ThemeToggleIcon = ({ theme }: { theme: string | undefined }) => {
         />
       )}
     </svg>
-  )
-}
+  );
+};
 
-export default ThemeToggleIcon
+export default ThemeToggleIcon;

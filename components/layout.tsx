@@ -1,7 +1,7 @@
-import type { ReactNode } from 'react'
-import Meta from './meta'
-import Navbar from './navbar'
-import Footer from './footer'
+import type { ReactNode } from 'react';
+import Meta from './meta';
+import Navbar from './navbar';
+import Footer from './footer';
 
 const Layout = ({ children }: { children: ReactNode }): JSX.Element => (
   <div className="bg-gray-50 dark:bg-gray-900">
@@ -18,6 +18,6 @@ const Layout = ({ children }: { children: ReactNode }): JSX.Element => (
     </main>
     <Footer />
   </div>
-)
+);
 
-export default Layout
+export default Layout;

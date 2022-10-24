@@ -1,6 +1,6 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
-import Layout from '@/components/layout'
+import Layout from '@/components/layout';
 
 export default function NotFound(): JSX.Element {
   return (
@@ -16,11 +16,11 @@ export default function NotFound(): JSX.Element {
           you double check that URL?
         </p>
         <Link href="/">
-          <a className="p-1 sm:p-4 w-64 font-bold mx-auto bg-gray-100 dark:bg-gray-900 text-center rounded-md text-black dark:text-white">
+          <a className="p-1 sm:p-4 w-64 font-bold mx-auto bg-gray-200 dark:bg-gray-800 hover:dark:bg-gray-700 text-center rounded-md text-black dark:text-white">
             Return Home
           </a>
         </Link>
       </div>
     </Layout>
-  )
+  );
 }

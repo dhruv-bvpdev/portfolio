@@ -1,7 +1,7 @@
-import Image from 'next/image'
-import Layout from '@/components/layout'
-import Project from '@/components/projects'
-import profilePic from '../public/static/images/PP.jpg'
+import Image from 'next/image';
+import Layout from '@/components/layout';
+import Project from '@/components/projects';
+import profilePic from '../public/static/images/PP.jpg';
 
 export default function Index(): JSX.Element {
   return (
@@ -64,5 +64,5 @@ export default function Index(): JSX.Element {
         </h2>
       </div>
     </Layout>
-  )
+  );
 }

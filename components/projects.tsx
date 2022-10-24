@@ -1,47 +1,23 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import type { Projects } from '@/lib/types'
+import useSWR from 'swr';
+import type { Projects } from '@/lib/types';
+import fetcher from '@/lib/fetcher';
 
 const Project = (): JSX.Element => {
-  const [projects, setProjects] = useState<Projects[]>([
-    {
-      name: '',
-      html_url: '',
-      description: '',
-      language: ''
-    }
-  ])
+  const { data, error } = useSWR<Projects[]>(
+    'https://api.github.com/users/dhruv-bvpdev/repos',
+    fetcher
+  );
 
-  useEffect(() => {
-    const getData = async () => {
-      await axios
-        .get<Projects[]>('https://api.github.com/users/dhruv-bvpdev/repos', {
-          responseType: 'json'
-        })
-        .then(response => {
-          setProjects(response.data)
-        })
-        .catch(() => {
-          getLocalData()
-        })
-    }
-
-    const getLocalData = async () => {
-      await axios
-        .get<Projects[]>('/static/projects.json', {
-          responseType: 'json'
-        })
-        .then(response => {
-          setProjects(response.data)
-        })
-    }
-
-    getData()
-  }, [])
+  if (error) {
+    return <div>Failed to load</div>;
+  }
+  if (!data) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
-      {projects.map((project, index) => (
+      {data.map((project: Projects, index: number) => (
         <div
           key={index}
           className="grid lg:grid-cols-4 md:grid-cols-2 gap-4 my-3 p-3"
@@ -61,7 +37,7 @@ const Project = (): JSX.Element => {
         </div>
       ))}
     </>
-  )
-}
+  );
+};
 
-export default Project
+export default Project;

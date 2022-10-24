@@ -23,7 +23,7 @@ function MenuIcon(props: JSX.IntrinsicElements['svg']) {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }
 
-export default MenuIcon
+export default MenuIcon;
