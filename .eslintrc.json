@@ -3,13 +3,13 @@
       "eslint:recommended",
       "plugin:@typescript-eslint/recommended",
       "prettier",
+      "plugin:tailwindcss/recommended",
       "next/core-web-vitals"
   ],
   "plugins": [
       "@typescript-eslint"
   ],
   "rules": {
-    "semi": "warn",
     "eqeqeq": "warn",
     "curly": "warn"
   }

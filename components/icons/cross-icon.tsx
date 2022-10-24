@@ -1,7 +1,7 @@
 function CrossIcon(props: JSX.IntrinsicElements['svg']) {
   return (
     <svg
-      className="h-5 w-5 absolute text-gray-900 dark:text-gray-100"
+      className="absolute w-5 h-5 text-gray-900 dark:text-gray-100"
       viewBox="0 0 24 24"
       width="24"
       height="24"
@@ -16,7 +16,7 @@ function CrossIcon(props: JSX.IntrinsicElements['svg']) {
       <path d="M18 6L6 18" />
       <path d="M6 6l12 12" />
     </svg>
-  );
+  )
 }
 
-export default CrossIcon;
+export default CrossIcon
