@@ -1,6 +1,33 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
-export function middleware() {
+export function middleware(req: NextRequest) {
+  /* if (req.nextUrl.pathname.startsWith('/dashboard')) {
+    const basicAuth = req.headers.get('authorization')
+
+    if (basicAuth) {
+      const auth = basicAuth.split(' ')[1]
+      const [user, pwd] = Buffer.from(auth, 'base64').toString().split(':')
+
+      if (
+        user === process.env.AUTH_ADMIN_USERNAME &&
+        pwd === process.env.AUTH_ADMIN_PASSWORD
+      ) {
+        return NextResponse.next()
+      }
+    } */
+
+  /* req.nextUrl.searchParams.set('from', req.nextUrl.pathname)
+    req.nextUrl.pathname = '/'
+    return NextResponse.redirect(req.nextUrl)
+ */
+  /* return new Response('Auth required', {
+      status: 401,
+      headers: {
+        'WWW-Authenticate': 'Basic realm="Secure Area"'
+      }
+    }) */
+  // }
+
   const ContentSecurityPolicy = `
     default-src 'self';
     script-src 'self' 'unsafe-eval' 'unsafe-inline';
