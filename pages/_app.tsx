@@ -5,7 +5,7 @@ import NProgress from 'nprogress'
 import '../styles/globals.css'
 import 'nprogress/nprogress.css'
 
-Router.events.on('routeChangeStart', (url, { shallow }) => {
+Router.events.on('routeChangeStart', (_url, { shallow }) => {
   if (!shallow) {
     NProgress.start()
   }

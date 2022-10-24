@@ -1,11 +1,16 @@
+import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
 import Head from 'next/head'
 
 const Meta = (): JSX.Element => {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
   const { theme } = useTheme()
+
   return (
     <Head>
       <title>Dhruv Gursahani</title>
+      <meta name="title" content="Dhruv Gursahani" />
       <meta
         name="viewport"
         content="minimum-scale=1, initial-scale=1, width=device-width"
@@ -28,12 +33,15 @@ const Meta = (): JSX.Element => {
       />
       <meta name="description" content="Full-Stack developer" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-      <meta
-        name="theme-color"
-        content={theme === 'light' ? '#ffffff' : '#000000'}
-      />
+      {mounted && (
+        <meta
+          name="theme-color"
+          content={theme === 'light' ? '#ffffff' : '#000000'}
+        />
+      )}
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Dhruv Gursahani" />
+      <meta property="og:url" content="https://dhruvgursahani.vercel.app/" />
       <meta property="og:description" content="Full Stack Developer" />
       <meta property="og:title" content="Dhruv Gursahani" />
       <meta name="application-name" content="Dhruv Gursahani" />
@@ -43,6 +51,13 @@ const Meta = (): JSX.Element => {
       />
       <meta name="author" content="Dhruv Gursahani" />
       <meta name="HandheldFriendly" content="true" />
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta
+        property="twitter:url"
+        content="https://dhruvgursahani.vercel.app/"
+      />
+      <meta property="twitter:title" content="Dhruv Gursahani" />
+      <meta property="twitter:description" content="Full Stack developer" />
     </Head>
   )
 }

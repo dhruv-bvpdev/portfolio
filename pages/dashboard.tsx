@@ -1,20 +1,17 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-
+import useSWR from 'swr'
 import Layout from '@/components/layout'
-
-import type { healthData } from '@/lib/types'
+import fetcher from '@/lib/fetcher'
+import { healthData } from '@/lib/types'
 
 export default function Dashboard(): JSX.Element {
-  const [data, setData] = useState<healthData>()
+  const { data, error } = useSWR<healthData>('/api/health', fetcher)
 
-  useEffect(() => {
-    const getData = async () => {
-      await axios.get<healthData>('/api/health').then(res => setData(res.data))
-    }
-
-    getData()
-  }, [])
+  if (error) {
+    return <div>Failed to load</div>
+  }
+  if (!data) {
+    return <div>Loading...</div>
+  }
 
   return (
     <Layout>
@@ -30,9 +27,9 @@ export default function Dashboard(): JSX.Element {
             <div className="mt-2 text-3xl font-bold spacing-sm text-black dark:text-white">
               <p
                 id="status"
-                className={data?.status ? 'text-green-600' : 'text-red-600'}
+                className={data.status ? 'text-green-600' : 'text-red-600'}
               >
-                {data?.status || '-'}
+                {data.status}
               </p>
             </div>
           </div>
@@ -41,7 +38,7 @@ export default function Dashboard(): JSX.Element {
               Environment
             </div>
             <p className="mt-2 text-3xl font-bold spacing-sm text-black dark:text-white">
-              {data?.env || '-'}
+              {data.env}
             </p>
           </div>
           <div className="metric-card border border-gray-200 dark:border-gray-800 rounded p-4 max-w-72 w-full">
@@ -49,7 +46,7 @@ export default function Dashboard(): JSX.Element {
               Uptime
             </div>
             <p className="mt-2 text-3xl font-bold spacing-sm text-black dark:text-white">
-              {data?.uptime || '-'}
+              {data.uptime}
             </p>
           </div>
           <div className="metric-card border border-gray-200 dark:border-gray-800 rounded p-4 max-w-72 w-full">
@@ -57,7 +54,7 @@ export default function Dashboard(): JSX.Element {
               Rss
             </div>
             <p className="mt-2 text-3xl font-bold spacing-sm text-black dark:text-white">
-              {data?.mem.rss || '-'}
+              {data.mem.rss}
             </p>
           </div>
           <div className="metric-card border border-gray-200 dark:border-gray-800 rounded p-4 max-w-72 w-full">
@@ -65,7 +62,7 @@ export default function Dashboard(): JSX.Element {
               Heap total
             </p>
             <div className="mt-2 text-3xl font-bold spacing-sm text-black dark:text-white">
-              {data?.mem.heapTotal || '-'}
+              {data.mem.heapTotal}
             </div>
           </div>
           <div className="metric-card border border-gray-200 dark:border-gray-800 rounded p-4 max-w-72 w-full">
@@ -73,7 +70,7 @@ export default function Dashboard(): JSX.Element {
               Heap used
             </div>
             <p className="mt-2 text-3xl font-bold spacing-sm text-black dark:text-white">
-              {data?.mem.heapUsed || '-'}
+              {data.mem.heapUsed}
             </p>
           </div>
         </div>
@@ -83,7 +80,7 @@ export default function Dashboard(): JSX.Element {
               External
             </div>
             <p className="mt-2 text-3xl font-bold spacing-sm text-black dark:text-white">
-              {data?.mem.external || '-'}
+              {data.mem.external}
             </p>
           </div>
           <div className="metric-card border border-gray-200 dark:border-gray-800 rounded p-4 max-w-72 w-full">
@@ -91,7 +88,7 @@ export default function Dashboard(): JSX.Element {
               Array buffers
             </div>
             <p className="mt-2 text-3xl font-bold spacing-sm text-black dark:text-white">
-              {data?.mem.arrayBuffers || '-'}
+              {data.mem.arrayBuffers}
             </p>
           </div>
           <div className="metric-card border border-gray-200 dark:border-gray-800 rounded p-4 max-w-72 w-full">
@@ -99,7 +96,7 @@ export default function Dashboard(): JSX.Element {
               Deployed
             </div>
             <p className="mt-2 text-3xl font-bold spacing-sm text-black dark:text-white">
-              {data?.vercel.deployed ? 'True' : 'False'}
+              {data.vercel.deployed ? 'True' : 'False'}
             </p>
           </div>
           <div className="metric-card border border-gray-200 dark:border-gray-800 rounded p-4 max-w-72 w-full">
@@ -107,7 +104,7 @@ export default function Dashboard(): JSX.Element {
               Vercel environment
             </div>
             <p className="mt-2 text-3xl font-bold spacing-sm text-black dark:text-white">
-              {data?.vercel.env || '-'}
+              {data.vercel.env}
             </p>
           </div>
         </div>

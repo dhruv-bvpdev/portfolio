@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
@@ -5,60 +6,42 @@ import MobileMenu from '@/components/mobile-menu'
 import ThemeToggleIcon from './icons/theme-icon'
 
 const Navbar = (): JSX.Element => {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
   const router = useRouter()
   const { theme, setTheme } = useTheme()
-
-  function scrollTo(event: { preventDefault: () => void }, anchor: string) {
-    event && event.preventDefault()
-
-    if (router.pathname !== '/') {
-      router.push('/#' + anchor)
-    }
-
-    const elementToView = document.getElementById(anchor)
-    elementToView?.scrollIntoView()
-
-    history.replaceState(
-      '',
-      document.title,
-      window.location.origin + window.location.pathname + window.location.search
-    )
-  }
 
   return (
     <nav className="sticky top-0 z-50 flex items-center justify-between w-full max-w-4xl p-4 md:p-8 mx-auto my-0 text-gray-900 bg-gray-50 sticky-nav md:my-8 dark:bg-gray-900 dark:text-gray-100">
       <div>
         <MobileMenu />
         <div className="md:w-0">
-          <Link href="/">
+          <Link href="/#top">
             <a
               id="nav-home"
-              onClick={event => scrollTo(event, 'top')}
               className="m-1 text-gray-900 sm:m-4 dark:text-gray-100 invisible md:visible"
             >
-              <span className="border-gray-800 dark:border-gray-300 link-underline py-1">
+              <span className="dark:link-underline link-underline-black py-1">
                 Home
               </span>
             </a>
           </Link>
-          <Link href="/">
+          <Link href="/#about">
             <a
               id="nav-about"
-              onClick={event => scrollTo(event, 'about')}
               className="m-1 text-gray-900 sm:m-4 dark:text-gray-100 invisible md:visible"
             >
-              <span className="border-gray-800 dark:border-gray-300 link-underline py-1">
+              <span className="dark:link-underline link-underline-black py-1">
                 About
               </span>
             </a>
           </Link>
-          <Link href="/">
+          <Link href="/#projects">
             <a
               id="nav-projects"
-              onClick={event => scrollTo(event, 'projects')}
               className="m-1 text-gray-900 sm:m-4 dark:text-gray-100 invisible md:visible"
             >
-              <span className="border-gray-800 dark:border-gray-300 link-underline py-1">
+              <span className="dark:link-underline link-underline-black py-1">
                 Projects
               </span>
             </a>
@@ -66,15 +49,17 @@ const Navbar = (): JSX.Element => {
         </div>
       </div>
       <div>
-        <button
-          id="dark-mode-toggle"
-          aria-label="Toggle Dark Mode"
-          type="button"
-          className="w-10 h-10 p-3 bg-gray-200 rounded-lg dark:bg-gray-800 mr-1 md:mr-3 ring-gray-300 hover:ring-4"
-          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-        >
-          <ThemeToggleIcon theme={theme} />
-        </button>
+        {mounted && theme !== undefined && (
+          <button
+            id="dark-mode-toggle"
+            aria-label="Toggle Dark Mode"
+            type="button"
+            className="w-10 h-10 p-3 mr-1 bg-gray-200 rounded-lg dark:bg-gray-800 md:mr-3 ring-gray-300 hover:ring-4"
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          >
+            <ThemeToggleIcon theme={theme} />
+          </button>
+        )}
       </div>
     </nav>
   )

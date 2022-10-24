@@ -10,20 +10,7 @@ const MobileMenu = (): JSX.Element => {
 
   function scrollTo(event: { preventDefault: () => void }, anchor: string) {
     event && event.preventDefault()
-
-    if (router.pathname !== '/') {
-      router.push('/#' + anchor)
-    }
-
-    const elementToView = document.getElementById(anchor)
-    elementToView?.scrollIntoView()
-
-    history.replaceState(
-      '',
-      document.title,
-      window.location.origin + window.location.pathname + window.location.search
-    )
-
+    router.push('/#' + anchor)
     setIsMenuOpen(false)
   }
 
