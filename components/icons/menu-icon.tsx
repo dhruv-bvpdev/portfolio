@@ -1,7 +1,7 @@
 function MenuIcon(props: JSX.IntrinsicElements['svg']) {
   return (
     <svg
-      className="h-5 w-5 absolute text-gray-900 dark:text-gray-100"
+      className="absolute w-5 h-5 text-gray-900 dark:text-gray-100"
       width="20"
       height="20"
       viewBox="0 0 20 20"
@@ -23,7 +23,7 @@ function MenuIcon(props: JSX.IntrinsicElements['svg']) {
         strokeLinejoin="round"
       />
     </svg>
-  );
+  )
 }
 
-export default MenuIcon;
+export default MenuIcon

@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
-import { useTheme } from 'next-themes';
-import Head from 'next/head';
+import { useEffect, useState } from 'react'
+import { useTheme } from 'next-themes'
+import Head from 'next/head'
 
 const Meta = (): JSX.Element => {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+  const { theme } = useTheme()
 
   return (
     <Head>
@@ -59,7 +59,7 @@ const Meta = (): JSX.Element => {
       <meta property="twitter:title" content="Dhruv Gursahani" />
       <meta property="twitter:description" content="Full Stack developer" />
     </Head>
-  );
-};
+  )
+}
 
-export default Meta;
+export default Meta

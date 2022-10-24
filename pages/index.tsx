@@ -1,12 +1,12 @@
-import Image from 'next/image';
-import Layout from '@/components/layout';
-import Project from '@/components/projects';
-import profilePic from '../public/static/images/PP.jpg';
+import Image from 'next/image'
+import Layout from '@/components/layout'
+import Project from '@/components/projects'
+import profilePic from '../public/static/images/PP.jpg'
 
 export default function Index(): JSX.Element {
   return (
     <Layout>
-      <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
+      <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
         <div className="w-41 h-41 mx-auto mb-16">
           <Image
             className="rounded-full"
@@ -20,10 +20,10 @@ export default function Index(): JSX.Element {
           />
         </div>
 
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
+        <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           Hey, I&apos;m Dhruv Gursahani
         </h1>
-        <h2 className="text-gray-600 dark:text-gray-400 mb-16">
+        <h2 className="mb-16 text-gray-600 dark:text-gray-400">
           I&apos;m a MBA student, developer, writer, and creator. I am a student
           at Fore School of Management, New Delhi. You’ve found my personal
           slice of the internet –&nbsp;sign my guestbook while you&apos;re here
@@ -31,11 +31,11 @@ export default function Index(): JSX.Element {
         </h2>
         <h3
           id="about"
-          className="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white"
+          className="mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white"
         >
           About
         </h3>
-        <h2 className="text-gray-600 dark:text-gray-400 mb-16">
+        <h2 className="mb-16 text-gray-600 dark:text-gray-400">
           <p className="mb-6">
             Hey, I&apos;m Dhruv. I&apos;m {new Date().getFullYear() - 2001}{' '}
             years old and come from India. I live in New Delhi and spend my free
@@ -55,14 +55,14 @@ export default function Index(): JSX.Element {
         </h2>
         <h3
           id="projects"
-          className="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white"
+          className="mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white"
         >
           Projects
         </h3>
-        <h2 className="text-gray-600 dark:text-gray-400 mb-16">
+        <h2 className="mb-16 text-gray-600 dark:text-gray-400">
           <Project />
         </h2>
       </div>
     </Layout>
-  );
+  )
 }

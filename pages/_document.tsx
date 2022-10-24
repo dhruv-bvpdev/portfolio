@@ -4,26 +4,26 @@ import Document, {
   Main,
   NextScript,
   DocumentContext
-} from 'next/document';
+} from 'next/document'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
+    const initialProps = await Document.getInitialProps(ctx)
+    return { ...initialProps }
   }
 
   render(): JSX.Element {
     return (
       <Html lang="en">
         <Head />
-        <body className="bg-gray-50 dark:bg-gray-900 text-white dark:text-black">
+        <body className="text-white bg-gray-50 dark:bg-gray-900 dark:text-black">
           <div id="top" />
           <Main />
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }
 
-export default MyDocument;
+export default MyDocument
