@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { withContentlayer } = require('next-contentlayer')
+
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   webpack: (config, { dev, isServer }) => {
@@ -11,6 +14,9 @@ module.exports = {
         'react-dom': 'preact/compat'
       })
     }
+
     return config
   }
 }
+
+module.exports = withContentlayer(nextConfig)

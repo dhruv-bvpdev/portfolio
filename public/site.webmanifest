@@ -1,10 +1,11 @@
 {
     "name": "Dhruv Gursahani",
-    "Scope": "/",
-    "start-url": "/",
+    "description": "Software developer and dual student",
+    "start_url": "/",
     "background_color": "#fff",
     "theme_color": "#000",
     "short_name": "Dhruv",
     "display": "standalone",
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "dir": "ltr"
 }

@@ -45,7 +45,7 @@ const MobileMenu = (): JSX.Element => {
         >
           <Link href="/">
             <a
-              onClick={event => scrollTo(event, 'top')}
+              onClick={() => setIsMenuOpen(false)}
               className="flex w-auto p-1 pb-4 ml-4 text-lg text-gray-900 sm:p-4 dark:text-gray-100"
             >
               Home
@@ -75,6 +75,19 @@ const MobileMenu = (): JSX.Element => {
               className="flex w-auto p-1 pb-4 ml-4 text-lg text-gray-900 sm:p-4 dark:text-gray-100"
             >
               Projects
+            </a>
+          </Link>
+        </li>
+        <li
+          className="ml-3 border-b border-gray-300 dark:border-gray-700"
+          style={{ transitionDelay: '150ms' }}
+        >
+          <Link href="/blog">
+            <a
+              id="mobile-nav-blog"
+              className="flex w-auto p-1 pb-4 ml-4 text-lg text-gray-900 sm:p-4 dark:text-gray-100"
+            >
+              Blog
             </a>
           </Link>
         </li>
