@@ -3,9 +3,14 @@ import Meta from './meta'
 import Navbar from './navbar'
 import Footer from './footer'
 
-const Layout = ({ children }: { children: ReactNode }): JSX.Element => (
+type Props = {
+  children: ReactNode
+  title?: string
+}
+
+const Layout = ({ children, title }: Props): JSX.Element => (
   <div className="bg-gray-50 dark:bg-gray-800">
-    <Meta />
+    <Meta title={title} />
     <a href="#skip" className="skip-nav">
       Skip to content
     </a>

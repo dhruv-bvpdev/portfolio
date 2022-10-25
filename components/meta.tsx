@@ -2,15 +2,19 @@ import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
 import Head from 'next/head'
 
-const Meta = (): JSX.Element => {
+const Meta = ({
+  title = 'Dhruv Gursahani'
+}: {
+  title?: string
+}): JSX.Element => {
   const [mounted, setMounted] = useState(false)
   useEffect(() => setMounted(true), [])
   const { theme } = useTheme()
 
   return (
     <Head>
-      <title>Dhruv Gursahani</title>
-      <meta name="title" content="Dhruv Gursahani" />
+      <title>{title}</title>
+      <meta name="title" content={title} />
       <meta
         name="viewport"
         content="minimum-scale=1, initial-scale=1, width=device-width"
@@ -43,7 +47,7 @@ const Meta = (): JSX.Element => {
       <meta property="og:site_name" content="Dhruv Gursahani" />
       <meta property="og:url" content="https://dhruvgursahani.vercel.app/" />
       <meta property="og:description" content="Full Stack Developer" />
-      <meta property="og:title" content="Dhruv Gursahani" />
+      <meta property="og:title" content={title} />
       <meta name="application-name" content="Dhruv Gursahani" />
       <meta
         name="keywords"
@@ -56,7 +60,7 @@ const Meta = (): JSX.Element => {
         property="twitter:url"
         content="https://dhruvgursahani.vercel.app/"
       />
-      <meta property="twitter:title" content="Dhruv Gursahani" />
+      <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content="Full Stack developer" />
     </Head>
   )

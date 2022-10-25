@@ -1,10 +1,8 @@
 import Link from 'next/link'
-import { signIn, useSession } from 'next-auth/react'
 import ExternalLink from './link-external'
 import NowPlaying from './now-playing'
 
 export default function Footer(): JSX.Element {
-  const { data: session } = useSession()
   return (
     <div className="flex flex-col justify-center px-8 bg-gray-50 dark:bg-gray-800">
       <footer className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-8">
@@ -34,23 +32,11 @@ export default function Footer(): JSX.Element {
                 Blog
               </a>
             </Link>
-            {session && (
-              <Link href="/dashboard">
-                <a className="text-gray-500 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-50 transition">
-                  Dashboard
-                </a>
-              </Link>
-            )}
-            {!session && (
-              <div
-                onClick={() =>
-                  signIn('credentials', { callbackUrl: '/dashboard' })
-                }
-                className="text-gray-500 cursor-pointer hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-50 transition"
-              >
-                Dashboard
-              </div>
-            )}
+            <Link href="/guestbook">
+              <a className="text-gray-500 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-50 transition">
+                Guestbook
+              </a>
+            </Link>
             <ExternalLink href="#">Twitter</ExternalLink>
             <ExternalLink href="">GitHub</ExternalLink>
           </div>
