@@ -5,7 +5,7 @@ import Project from '@/components/projects'
 import type { Projects } from '@/lib/types'
 import profilePic from '../public/static/images/PP.jpg'
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const reposResponse = await fetch(
     'https://api.github.com/users/dhruv-bvpdev/repos?per_page=100&sort=pushed'
   )

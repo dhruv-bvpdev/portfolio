@@ -80,6 +80,11 @@ export function Guestbook({ fallbackData }: { fallbackData: GuestbookData[] }) {
     e.preventDefault()
     setForm({ state: Form.Loading })
 
+    if (inputEl.current.value.trim().length === 0) {
+      setForm({ state: Form.Error, message: 'Please Enter a Message' })
+      return
+    }
+
     const res = await fetch('/api/guestbook', {
       body: JSON.stringify({
         body: inputEl.current.value
@@ -110,9 +115,9 @@ export function Guestbook({ fallbackData }: { fallbackData: GuestbookData[] }) {
   return (
     <>
       <div className="w-full p-6 my-4 border border-blue-200 rounded dark:border-gray-800 bg-blue-50 dark:bg-blue-opaque">
-        <h5 className="text-lg font-bold text-gray-900 md:text-xl dark:text-gray-100">
+        <h2 className="text-lg font-bold text-gray-900 md:text-xl dark:text-gray-100">
           Sign the Guestbook
-        </h5>
+        </h2>
         <p className="my-1 text-gray-800 dark:text-gray-200">
           Leave a comment below. It could be anything – appreciation,
           information, wisdom, or even humor. Surprise me!
