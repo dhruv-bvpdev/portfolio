@@ -1,5 +1,5 @@
 import NextAuth from 'next-auth'
-import CredentialsProvider from 'next-auth/providers/credentials'
+import GoogleProvider from 'next-auth/providers/google'
 
 export default NextAuth({
   theme: {
@@ -8,23 +8,24 @@ export default NextAuth({
     logo: ''
   },
   providers: [
-    CredentialsProvider({
-      id: 'admin-login',
-      name: 'admin login',
-      credentials: {
-        password: { label: 'Password', type: 'password' }
-      },
-      async authorize(credentials) {
-        const user = {
-          id: 'dhruv',
-          isAdmin: true
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+      authorization: {
+        params: {
+          prompt: 'consent',
+          access_type: 'offline',
+          response_type: 'code'
         }
-
-        if (credentials?.password === process.env.AUTH_ADMIN_PASSWORD) {
-          return user
-        }
-        return null
       }
     })
-  ]
+  ],
+  callbacks: {
+    session: async ({ session, token }) => {
+      token.image = token.picture
+      session.user = token
+
+      return session
+    }
+  }
 })
