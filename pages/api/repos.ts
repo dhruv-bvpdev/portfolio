@@ -3,8 +3,12 @@ import type { Projects } from '@/lib/types'
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Projects[]>
+  res: NextApiResponse<Projects[] | string>
 ) {
+  if (req.method !== 'GET') {
+    return res.status(405).json('Only GET method allowed')
+  }
+
   const reposResponse = await fetch(
     'https://api.github.com/users/dhruv-bvpdev/repos?per_page=100&sort=pushed'
   )
