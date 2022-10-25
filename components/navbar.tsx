@@ -46,6 +46,16 @@ const Navbar = (): JSX.Element => {
               </span>
             </a>
           </Link>
+          <Link href="/blog">
+            <a
+              id="nav-blog"
+              className="invisible m-1 text-gray-900 sm:m-4 dark:text-gray-100 md:visible"
+            >
+              <span className="py-1 dark:link-underline link-underline-black">
+                Blog
+              </span>
+            </a>
+          </Link>
         </div>
       </div>
       <div>

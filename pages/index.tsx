@@ -5,7 +5,7 @@ import Project from '@/components/projects'
 import type { Projects } from '@/lib/types'
 import profilePic from '../public/static/images/PP.jpg'
 
-export const getStaticProps: GetStaticProps = async () => {
+export async function getStaticProps() {
   const reposResponse = await fetch(
     'https://api.github.com/users/dhruv-bvpdev/repos?per_page=100&sort=pushed'
   )
@@ -44,7 +44,7 @@ export default function Index({
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           Hey, I&apos;m Dhruv Gursahani
         </h1>
-        <h2 className="mb-16 text-gray-600 dark:text-gray-200">
+        <h2 className="mb-16 text-gray-600 dark:text-[#c2c2c2]">
           I&apos;m a MBA student, developer, writer, and creator. I am a student
           at Fore School of Management, New Delhi. You’ve found my personal
           slice of the internet –&nbsp;sign my guestbook while you&apos;re here
@@ -56,7 +56,7 @@ export default function Index({
         >
           About
         </h3>
-        <h2 className="mb-16 text-gray-600 dark:text-gray-200">
+        <h2 className="mb-16 text-gray-600 dark:text-[#c2c2c2]">
           <p className="mb-6">
             Hey, I&apos;m Dhruv. I&apos;m {new Date().getFullYear() - 2001}{' '}
             years old and come from India. I live in New Delhi and spend my free
@@ -81,7 +81,7 @@ export default function Index({
           Projects
         </h3>
         <h2 className="text-gray-600 dark:text-gray-200">
-          <Project fallbackData={fallbackData} />
+          {/* <Project fallbackData={fallbackData} /> */}
         </h2>
       </div>
     </Layout>
