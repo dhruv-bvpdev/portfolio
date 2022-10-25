@@ -15,7 +15,7 @@ const Navbar = (): JSX.Element => {
     <nav className="sticky z-50 flex items-center justify-between w-full max-w-4xl p-4 mx-auto my-0 text-gray-900 md:p-8 bg-gray-50 md:my-8 dark:bg-gray-800 dark:text-gray-100">
       <div>
         <MobileMenu />
-        <div className="md:w-0">
+        <div>
           <Link href="/">
             <a
               id="nav-home"
@@ -59,7 +59,7 @@ const Navbar = (): JSX.Element => {
           <Link href="/guestbook">
             <a
               id="nav-guestbook"
-              className="invisible m-1 text-gray-900 sm:m-4 dark:text-gray-100 md:visible"
+              className="hidden m-1 text-gray-900 sm:m-4 dark:text-gray-100 md:visible"
             >
               <span className="py-1 dark:link-underline link-underline-black">
                 Guestbook

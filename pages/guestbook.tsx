@@ -1,8 +1,7 @@
+import { GetStaticProps } from 'next'
 import prisma from '@/lib/prisma'
-
 import Layout from '@/components/layout'
 import { Guestbook as GuestbookComponent } from '@/components/guestbook'
-
 import type { GuestbookData } from '@/lib/types'
 
 export default function Guestbook({
@@ -26,7 +25,7 @@ export default function Guestbook({
   )
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const entries = await prisma.guestbook.findMany({
     orderBy: {
       updated_at: 'desc'
