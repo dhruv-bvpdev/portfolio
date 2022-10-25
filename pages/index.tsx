@@ -1,9 +1,30 @@
+import { GetStaticProps } from 'next'
 import Image from 'next/image'
 import Layout from '@/components/layout'
 import Project from '@/components/projects'
+import type { Projects } from '@/lib/types'
 import profilePic from '../public/static/images/PP.jpg'
 
-export default function Index(): JSX.Element {
+export const getStaticProps: GetStaticProps = async () => {
+  const reposResponse = await fetch(
+    'https://api.github.com/users/dhruv-bvpdev/repos?per_page=100&sort=pushed'
+  )
+
+  const fallbackData = await reposResponse.json()
+
+  return {
+    props: {
+      fallbackData
+    },
+    revalidate: 60
+  }
+}
+
+export default function Index({
+  fallbackData
+}: {
+  fallbackData: Projects[]
+}): JSX.Element {
   return (
     <Layout>
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
@@ -23,7 +44,7 @@ export default function Index(): JSX.Element {
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           Hey, I&apos;m Dhruv Gursahani
         </h1>
-        <h2 className="mb-16 text-gray-600 dark:text-gray-400">
+        <h2 className="mb-16 text-gray-600 dark:text-gray-200">
           I&apos;m a MBA student, developer, writer, and creator. I am a student
           at Fore School of Management, New Delhi. You’ve found my personal
           slice of the internet –&nbsp;sign my guestbook while you&apos;re here
@@ -35,7 +56,7 @@ export default function Index(): JSX.Element {
         >
           About
         </h3>
-        <h2 className="mb-16 text-gray-600 dark:text-gray-400">
+        <h2 className="mb-16 text-gray-600 dark:text-gray-200">
           <p className="mb-6">
             Hey, I&apos;m Dhruv. I&apos;m {new Date().getFullYear() - 2001}{' '}
             years old and come from India. I live in New Delhi and spend my free
@@ -59,8 +80,8 @@ export default function Index(): JSX.Element {
         >
           Projects
         </h3>
-        <h2 className="mb-16 text-gray-600 dark:text-gray-400">
-          <Project />
+        <h2 className="mb-16 text-gray-600 dark:text-gray-200">
+          <Project fallbackData={fallbackData} />
         </h2>
       </div>
     </Layout>
