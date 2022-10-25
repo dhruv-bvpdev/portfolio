@@ -7,10 +7,10 @@ export default function Footer(): JSX.Element {
   return (
     <div className="flex flex-col justify-center px-8 bg-gray-50 dark:bg-gray-800">
       <footer className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-8">
-        <hr className="border-1 w-full mb-8 border-gray-200 dark:border-gray-700" />
+        <hr className="w-full mb-8 border border-gray-200 dark:border-gray-700" />
         <div className="w-full max-w-2xl pb-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
           <div className="flex flex-col space-y-4">
-            <Link href="/#top">
+            <Link href="/">
               <a className="text-gray-500 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-50 transition">
                 Home
               </a>
