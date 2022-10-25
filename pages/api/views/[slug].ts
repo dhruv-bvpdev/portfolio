@@ -13,7 +13,7 @@ export default async function handler(
       const newOrUpdatedViews = await prisma.views.upsert({
         where: { slug },
         create: {
-          slug
+          slug: slug!
         },
         update: {
           count: {
@@ -30,7 +30,7 @@ export default async function handler(
     if (req.method === 'GET') {
       const views = await prisma.views.findUnique({
         where: {
-          slug
+          slug: slug!
         }
       })
 
