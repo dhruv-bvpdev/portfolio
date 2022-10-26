@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 
-import { signIn, useSession } from 'next-auth/react'
+import { signIn, signOut, useSession } from 'next-auth/react'
 import useSWR, { useSWRConfig } from 'swr'
 import { format } from 'date-fns'
 
@@ -114,6 +114,15 @@ export function Guestbook({ fallbackData }: { fallbackData: GuestbookData[] }) {
 
   return (
     <>
+      {session?.user && (
+        <p className="text-sm text-gray-600 dark:text-[#c2c2c2]">
+          Logged In as {session?.user?.email} (
+          <button onClick={() => signOut()} className="underline">
+            Logout
+          </button>
+          )
+        </p>
+      )}
       <div className="w-full p-6 my-4 border border-blue-200 rounded dark:border-gray-800 bg-blue-50 dark:bg-blue-opaque">
         <h2 className="text-lg font-bold text-gray-900 md:text-xl dark:text-gray-100">
           Sign the Guestbook
