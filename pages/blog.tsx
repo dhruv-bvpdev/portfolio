@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { allBlogs } from 'contentlayer/generated'
 import Layout from '@/components/layout'
 import BlogPost from '@/components/blog/BlogPost'
-import { pick } from '@/lib/utils'
+import { pick } from 'contentlayer/client'
 
 export default function Blog({
   posts
