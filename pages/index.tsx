@@ -81,7 +81,7 @@ export default function Index({
           Projects
         </h3>
         <h2 className="text-gray-600 dark:text-gray-200">
-          {/* <Project fallbackData={fallbackData} /> */}
+          <Project fallbackData={fallbackData} />
         </h2>
       </div>
     </Layout>
