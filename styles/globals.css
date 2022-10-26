@@ -221,6 +221,10 @@ html {
   margin-bottom: 1.25em !important;
 }
 
+.prose .callout > p {
+  margin: 0 !important;
+}
+
 .token.comment,
 .token.prolog,
 .token.doctype,
@@ -300,6 +304,10 @@ pre {
 
 .highlight-line {
   @apply block px-4 -mx-4 bg-gray-100 border-l-4 border-blue-500 dark:bg-gray-800;
+}
+
+.step > h3 {
+  @apply my-0;
 }
 
 .link-underline {
