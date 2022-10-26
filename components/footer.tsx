@@ -37,12 +37,18 @@ export default function Footer(): JSX.Element {
                 Guestbook
               </a>
             </Link>
-            <ExternalLink href="#">Twitter</ExternalLink>
-            <ExternalLink href="">GitHub</ExternalLink>
+            <ExternalLink href="https://twitter.com/dhruv_gursahani">
+              Twitter
+            </ExternalLink>
+            <ExternalLink href="https://github.com/dhruv-bvpdev">
+              GitHub
+            </ExternalLink>
           </div>
           <div className="flex flex-col space-y-4">
             <ExternalLink href="">My setup</ExternalLink>
-            <ExternalLink href="">Source code</ExternalLink>
+            <ExternalLink href="https://github.com/dhruv-bvpdev/portfolio">
+              Source code
+            </ExternalLink>
             <ExternalLink href="">Contact</ExternalLink>
             <a
               href="mailto:dhruv.gursahani@outlook.com"
@@ -56,7 +62,7 @@ export default function Footer(): JSX.Element {
           Powered by{' '}
           <ExternalLink href="https://nextjs.org/">Next.js</ExternalLink> and{' '}
           <ExternalLink href="https://tailwindcss.com/">
-            TailwindCss
+            TailwindCSS
           </ExternalLink>
           . Hosted on{' '}
           <ExternalLink href="https://vercel.com/">Vercel</ExternalLink>.
