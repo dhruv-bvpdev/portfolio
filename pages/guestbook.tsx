@@ -15,7 +15,7 @@ export default function Guestbook({
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           Guestbook
         </h1>
-        <p className="mb-4 text-gray-600 dark:text-[#c2c2c2]">
+        <p className="mb-3 text-gray-600 dark:text-[#c2c2c2]">
           Leave a comment below. It could be anything – appreciation,
           information, wisdom, or even humor. Surprise me!
         </p>

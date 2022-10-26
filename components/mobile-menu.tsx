@@ -46,7 +46,9 @@ const MobileMenu = (): JSX.Element => {
           <Link href="/">
             <a
               onClick={() => setIsMenuOpen(false)}
-              className="flex w-auto p-1 pb-4 ml-4 text-lg text-gray-900 sm:p-4 dark:text-gray-100"
+              className={`flex w-auto p-1 pb-4 ml-4 text-lg text-gray-900 sm:p-4 dark:text-gray-100 ${
+                router.asPath === '/' ? 'font-semibold' : ''
+              }`}
             >
               Home
             </a>
@@ -59,7 +61,9 @@ const MobileMenu = (): JSX.Element => {
           <Link href="/">
             <a
               onClick={event => scrollTo(event, 'about')}
-              className="flex w-auto p-1 pb-4 ml-4 text-lg text-gray-900 sm:p-4 dark:text-gray-100"
+              className={`flex w-auto p-1 pb-4 ml-4 text-lg text-gray-900 sm:p-4 dark:text-gray-100 ${
+                router.asPath === '/#about' ? 'font-semibold' : ''
+              }`}
             >
               About
             </a>
@@ -72,7 +76,9 @@ const MobileMenu = (): JSX.Element => {
           <Link href="/">
             <a
               onClick={event => scrollTo(event, 'projects')}
-              className="flex w-auto p-1 pb-4 ml-4 text-lg text-gray-900 sm:p-4 dark:text-gray-100"
+              className={`flex w-auto p-1 pb-4 ml-4 text-lg text-gray-900 sm:p-4 dark:text-gray-100 ${
+                router.asPath === '/#projects' ? 'font-semibold' : ''
+              }`}
             >
               Projects
             </a>
@@ -85,7 +91,9 @@ const MobileMenu = (): JSX.Element => {
           <Link href="/blog">
             <a
               id="mobile-nav-blog"
-              className="flex w-auto p-1 pb-4 ml-4 text-lg text-gray-900 sm:p-4 dark:text-gray-100"
+              className={`flex w-auto p-1 pb-4 ml-4 text-lg text-gray-900 sm:p-4 dark:text-gray-100 ${
+                router.pathname === '/blog' ? 'font-semibold' : ''
+              }`}
             >
               Blog
             </a>
@@ -98,7 +106,9 @@ const MobileMenu = (): JSX.Element => {
           <Link href="/guestbook">
             <a
               id="mobile-nav-guestbook"
-              className="flex w-auto p-1 pb-4 ml-4 text-lg text-gray-900 sm:p-4 dark:text-gray-100"
+              className={`flex w-auto p-1 pb-4 ml-4 text-lg text-gray-900 sm:p-4 dark:text-gray-100 ${
+                router.pathname === '/guestbook' ? 'font-semibold' : ''
+              }`}
             >
               Guestbook
             </a>

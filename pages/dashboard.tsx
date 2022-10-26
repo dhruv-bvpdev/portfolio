@@ -3,7 +3,7 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 import Layout from '@/components/layout'
 import Metric from '@/components/metric'
 import fetcher from '@/lib/fetcher'
-import { healthData } from '@/lib/types'
+import { healthData, Views } from '@/lib/types'
 
 export default function Dashboard(): JSX.Element {
   const { data: session } = useSession({
@@ -15,14 +15,19 @@ export default function Dashboard(): JSX.Element {
 
   const { data, error } = useSWR<healthData>('/api/health', fetcher)
 
+  const { data: viewsData, error: viewsError } = useSWR<Views>(
+    '/api/views',
+    fetcher
+  )
+
   if (!session) {
     return <Layout>Not authenticated</Layout>
   }
 
-  if (error) {
+  if (error || viewsError) {
     return <Layout>Failed to load</Layout>
   }
-  if (!data) {
+  if (!data || !viewsData) {
     return <Layout>Loading...</Layout>
   }
 
@@ -32,12 +37,16 @@ export default function Dashboard(): JSX.Element {
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           Dashboard
         </h1>
-        <div
-          onClick={() => signOut({ callbackUrl: '/' })}
-          className="cursor-pointer"
-        >
-          Logout
-        </div>
+        <p>
+          Logged in as {session.user?.email} (
+          <button
+            onClick={() => signOut({ callbackUrl: '/' })}
+            className="underline cursor-pointer"
+          >
+            Logout
+          </button>
+          )
+        </p>
         <div className="w-full my-2 grid gap-4 grid-cols-1 sm:grid-cols-2">
           <Metric title="Status">
             <span className={data.status ? 'text-green-600' : 'text-red-600'}>
@@ -55,6 +64,7 @@ export default function Dashboard(): JSX.Element {
             {data.vercel.deployed ? 'true' : 'false'}
           </Metric>
           <Metric title="Vercel environment">{data.vercel.env}</Metric>
+          <Metric title="Blog total views">{viewsData.total}</Metric>
         </div>
       </div>
     </Layout>

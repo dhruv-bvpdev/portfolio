@@ -1,10 +1,8 @@
+import type { PropsWithChildren } from 'react'
 import Image from 'next/image'
 import { parseISO, format } from 'date-fns'
-
-import Container from '@/components/blog/Container'
+import Layout from '../layout'
 import ViewCounter from '@/components/blog/ViewCounter'
-
-import type { PropsWithChildren } from 'react'
 import type { Blog } from 'contentlayer/generated'
 
 const editUrl = (slug: string) =>
@@ -15,7 +13,7 @@ export default function BlogLayout({
   post
 }: PropsWithChildren<{ post: Blog }>) {
   return (
-    <Container
+    <Layout
       title={`${post.title} – Dhruv Gursahani`}
       description={post.summary}
       date={new Date(post.publishedAt).toISOString()}
@@ -58,6 +56,6 @@ export default function BlogLayout({
           </a>
         </div>
       </article>
-    </Container>
+    </Layout>
   )
 }

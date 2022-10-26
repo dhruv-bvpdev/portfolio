@@ -1,12 +1,22 @@
+import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
-import Head from 'next/head'
+import { useRouter } from 'next/router'
+
+type Props = {
+  title?: string
+  description?: string
+  type?: string
+  date?: string
+}
 
 const Meta = ({
-  title = 'Dhruv Gursahani'
-}: {
-  title?: string
-}): JSX.Element => {
+  title = 'Dhruv Gursahani',
+  type = 'website',
+  description = 'Full Stack Developer',
+  date
+}: Props): JSX.Element => {
+  const router = useRouter()
   const [mounted, setMounted] = useState(false)
   useEffect(() => setMounted(true), [])
   const { theme } = useTheme()
@@ -30,12 +40,12 @@ const Meta = ({
         name="apple-mobile-web-app-status-bar-style"
         content="black-translucent"
       />
-      <link rel="manifest" href="/manifest.json" />
+      <link rel="manifest" href="/site.webmanifest" />
       <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover"
       />
-      <meta name="description" content="Full-Stack developer" />
+      <meta name="description" content={description} />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
       {mounted && (
         <meta
@@ -43,11 +53,19 @@ const Meta = ({
           content={theme === 'light' ? '#ffffff' : '#000000'}
         />
       )}
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={type} />
       <meta property="og:site_name" content="Dhruv Gursahani" />
-      <meta property="og:url" content="https://dhruvgursahani.vercel.app/" />
-      <meta property="og:description" content="Full Stack Developer" />
+      <meta
+        property="og:url"
+        content={`https://dhruvgursahani.vercel.app${router.asPath}`}
+      />
+      <link
+        rel="canonical"
+        href={`https://dhruvgursahani.vercel.app${router.asPath}`}
+      />
+      <meta property="og:description" content={description} />
       <meta property="og:title" content={title} />
+      {date && <meta property="article:published_time" content={date} />}
       <meta name="application-name" content="Dhruv Gursahani" />
       <meta
         name="keywords"
@@ -61,7 +79,7 @@ const Meta = ({
         content="https://dhruvgursahani.vercel.app/"
       />
       <meta property="twitter:title" content={title} />
-      <meta property="twitter:description" content="Full Stack developer" />
+      <meta property="twitter:description" content={description} />
     </Head>
   )
 }

@@ -4,7 +4,7 @@ import Layout from '@/components/layout'
 
 export default function NotFound(): JSX.Element {
   return (
-    <Layout>
+    <Layout title="404 - Dhruv Gursahani">
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           404 – Page not found

@@ -6,9 +6,9 @@ import MobileMenu from '@/components/mobile-menu'
 import ThemeToggleIcon from './icons/theme-icon'
 
 const Navbar = (): JSX.Element => {
+  const router = useRouter()
   const [mounted, setMounted] = useState(false)
   useEffect(() => setMounted(true), [])
-  const router = useRouter()
   const { resolvedTheme, setTheme } = useTheme()
 
   return (
@@ -19,7 +19,9 @@ const Navbar = (): JSX.Element => {
           <Link href="/">
             <a
               id="nav-home"
-              className="invisible m-1 text-gray-900 sm:m-4 dark:text-gray-100 md:visible"
+              className={`invisible m-1 text-gray-900 sm:m-4 dark:text-gray-100 md:visible ${
+                router.asPath === '/' ? 'font-semibold' : ''
+              }`}
             >
               <span className="dark:link-underline link-underline-black py-1">
                 Home
@@ -29,7 +31,9 @@ const Navbar = (): JSX.Element => {
           <Link href="/#about">
             <a
               id="nav-about"
-              className="invisible m-1 text-gray-900 sm:m-4 dark:text-gray-100 md:visible"
+              className={`invisible m-1 text-gray-900 sm:m-4 dark:text-gray-100 md:visible ${
+                router.asPath === '/#about' ? 'font-semibold' : ''
+              }`}
             >
               <span className="dark:link-underline link-underline-black py-1">
                 About
@@ -39,7 +43,9 @@ const Navbar = (): JSX.Element => {
           <Link href="/#projects">
             <a
               id="nav-projects"
-              className="invisible m-1 text-gray-900 sm:m-4 dark:text-gray-100 md:visible"
+              className={`invisible m-1 text-gray-900 sm:m-4 dark:text-gray-100 md:visible ${
+                router.asPath === '/#projects' ? 'font-semibold' : ''
+              }`}
             >
               <span className="dark:link-underline link-underline-black py-1">
                 Projects
@@ -49,7 +55,9 @@ const Navbar = (): JSX.Element => {
           <Link href="/blog">
             <a
               id="nav-blog"
-              className="invisible m-1 text-gray-900 sm:m-4 dark:text-gray-100 md:visible"
+              className={`invisible m-1 text-gray-900 sm:m-4 dark:text-gray-100 md:visible ${
+                router.pathname === '/blog' ? 'font-semibold' : ''
+              }`}
             >
               <span className="py-1 dark:link-underline link-underline-black">
                 Blog
@@ -59,7 +67,9 @@ const Navbar = (): JSX.Element => {
           <Link href="/guestbook">
             <a
               id="nav-guestbook"
-              className="hidden m-1 text-gray-900 sm:m-4 dark:text-gray-100 md:visible"
+              className={`hidden m-1 text-gray-900 sm:m-4 dark:text-gray-100 md:inline ${
+                router.pathname === '/guestbook' ? 'font-semibold' : ''
+              }`}
             >
               <span className="py-1 dark:link-underline link-underline-black">
                 Guestbook
