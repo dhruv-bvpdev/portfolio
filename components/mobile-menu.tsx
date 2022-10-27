@@ -58,11 +58,11 @@ const MobileMenu = (): JSX.Element => {
           className="ml-3 border-b border-gray-300 dark:border-gray-700"
           style={{ transitionDelay: '150ms' }}
         >
-          <Link href="/">
+          <Link href="/about">
             <a
               onClick={event => scrollTo(event, 'about')}
               className={`flex w-auto p-1 pb-4 ml-4 text-lg text-gray-900 sm:p-4 dark:text-gray-100 ${
-                router.asPath === '/#about' ? 'font-semibold' : ''
+                router.pathname === '/about' ? 'font-semibold' : ''
               }`}
             >
               About
@@ -73,11 +73,11 @@ const MobileMenu = (): JSX.Element => {
           className="ml-3 border-b border-gray-300 dark:border-gray-700"
           style={{ transitionDelay: '150ms' }}
         >
-          <Link href="/">
+          <Link href="/projects">
             <a
               onClick={event => scrollTo(event, 'projects')}
               className={`flex w-auto p-1 pb-4 ml-4 text-lg text-gray-900 sm:p-4 dark:text-gray-100 ${
-                router.asPath === '/#projects' ? 'font-semibold' : ''
+                router.pathname === '/projects' ? 'font-semibold' : ''
               }`}
             >
               Projects
