@@ -4,13 +4,13 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 import useSWR, { useSWRConfig } from 'swr'
 import { format } from 'date-fns'
 
-import fetcher from 'lib/fetcher'
+import fetcher from '@/lib/fetcher'
 
 import SuccessMessage from '@/components/guestbook/SuccessMessage'
 import ErrorMessage from '@/components/guestbook/ErrorMessage'
 import LoadingSpinner from '@/components/guestbook/LoadingSpinner'
 
-import { Form, FormState, GuestbookData } from 'lib/types'
+import { Form, FormState, GuestbookData } from '@/lib/types'
 
 type ClickEvent = {
   preventDefault: () => void
