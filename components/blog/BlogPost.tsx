@@ -30,16 +30,17 @@ export default function BlogPost({
           </div>
           <p className="text-gray-600 dark:text-[#c2c2c2]">{summary}</p>
           <div className="flex mt-1">
-            {tags.split(', ').map((tag, key) => {
-              return (
-                <div
-                  key={key}
-                  className="mx-2 text-purple-700 dark:text-purple-500"
-                >
-                  #{tag}
-                </div>
-              )
-            })}
+            {tags &&
+              tags.split(', ').map((tag, key) => {
+                return (
+                  <div
+                    key={key}
+                    className="mx-2 text-purple-700 dark:text-purple-500"
+                  >
+                    #{tag}
+                  </div>
+                )
+              })}
           </div>
         </div>
       </a>

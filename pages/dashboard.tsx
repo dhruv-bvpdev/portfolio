@@ -14,7 +14,7 @@ export default function Dashboard(): JSX.Element {
   })
 
   const { data, error } = useSWR<healthData>('/api/health', fetcher)
-
+  const { data: guestbookCount } = useSWR('/api/guestbook?count=true', fetcher)
   const { data: viewsData, error: viewsError } = useSWR<Views>(
     '/api/views',
     fetcher
@@ -60,6 +60,9 @@ export default function Dashboard(): JSX.Element {
           <Metric title="Deployed">{data?.vercel.deployed.toString()}</Metric>
           <Metric title="Vercel environment">{data?.vercel.env}</Metric>
           <Metric title="Blog total views">{viewsData?.total}</Metric>
+          <Metric title="Guestbook entries">
+            {guestbookCount ? guestbookCount.count : ''}
+          </Metric>
         </div>
       </div>
     </Layout>
