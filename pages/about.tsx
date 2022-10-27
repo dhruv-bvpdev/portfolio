@@ -1,12 +1,11 @@
 import Layout from '@/components/layout'
+import Link from 'next/link'
+import Image from 'next/future/image'
 
 export default function About() {
-  const age = Math.floor(
-    (new Date().getTime() - new Date('2001-09-22').getTime()) / 3.15576e10
-  )
   return (
     <Layout>
-      <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
+      <div className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           About
         </h1>
@@ -32,10 +31,92 @@ export default function About() {
         <h1 className="mb-4 text-xl font-bold tracking-tight text-black md:text-3xl dark:text-white">
           Links
         </h1>
-        <h2 className="mb-16 text-gray-600 dark:text-[#c2c2c2]"></h2>
+        <h2 className="mb-16 text-gray-600 dark:text-[#c2c2c2] prose dark:prose-dark">
+          <ul className="list-disc">
+            <li>
+              Github:{' '}
+              <Link href="https://github.com/dhruv-bvpdev">@dhruv-bvpdev</Link>
+            </li>
+            <li>
+              Website:{' '}
+              <Link href="https://dhruvgursahani.vercel.app">
+                https://dhruvgursahani.vercel.app
+              </Link>
+            </li>
+          </ul>
+        </h2>
+
+        <h1 className="mb-4 text-xl font-bold tracking-tight text-black md:text-3xl dark:text-white">
+          Timeline
+        </h1>
+
+        <ol className="relative mb-16 border-l border-gray-200 dark:border-gray-700">
+          <li className="mb-10 ml-4">
+            <div className="absolute w-3 h-3 bg-gray-200 border border-white rounded-full -left-1.5 dark:border-gray-900 dark:bg-gray-700"></div>
+            <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+              July 2022
+            </time>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+              MBA at Fore School of Management, New Delhi
+            </h3>
+            <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+              Looking forward to excel at the unmatched learning environment at
+              FSM and grooming myself to become a top notch corporate manager.
+            </p>
+            <Link href="https://www.fsm.ac.in/">
+              <div className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                Learn more{' '}
+                <svg
+                  className="w-3 h-3 ml-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+            </Link>
+          </li>
+          <li className="ml-4">
+            <div className="absolute w-3 h-3 bg-gray-200 border border-white rounded-full -left-1.5 dark:border-gray-900 dark:bg-gray-700"></div>
+            <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+              June 2022
+            </time>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+              Completed Bachelor&apos;s in Computer Applications from Bharati
+              Vidyapeeth Institute of Management and Research, New Delhi
+            </h3>
+            <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+              Graduated suma cum laude -- 9.33 GPA. Specialized in web
+              development
+            </p>
+          </li>
+          <li className="ml-4">
+            <div className="absolute w-3 h-3 bg-gray-200 border border-white rounded-full -left-1.5 dark:border-gray-900 dark:bg-gray-700"></div>
+            <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+              Mar 2019
+            </time>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+              Completed schooling from Bhatnagar International School, New Delhi
+            </h3>
+            <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+              Bid Adieu to my school after 14 years. Had chosen Commerce as my
+              stream for Class XII (CBSE) [91.25%]
+            </p>
+          </li>
+        </ol>
+
+        <h1 className="mb-4 text-xl font-bold tracking-tight text-black md:text-3xl dark:text-white">
+          SAAS Journey
+        </h1>
+
         <ol className="relative border-l border-gray-200 dark:border-gray-700">
           <li className="mb-10 ml-6">
-            <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-200 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+            <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-200 rounded-full -left-3 ring-8 ring-gray-100 dark:ring-gray-800 dark:bg-blue-900">
               <svg
                 className="w-3 h-3 text-blue-600 dark:text-blue-400"
                 fill="currentColor"
