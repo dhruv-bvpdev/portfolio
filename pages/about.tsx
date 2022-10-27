@@ -1,10 +1,9 @@
 import Layout from '@/components/layout'
 import Link from 'next/link'
-import Image from 'next/future/image'
 
 export default function About() {
   return (
-    <Layout>
+    <Layout title="About - Dhruv Gursahani">
       <div className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           About

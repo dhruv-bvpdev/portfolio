@@ -1,47 +1,62 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { getNowPlaying } from 'lib/spotify'
+import { type NextRequest } from 'next/server'
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+import { getNowPlaying } from '@/lib/spotify'
+
+export const config = {
+  runtime: 'experimental-edge'
+}
+
+export default async function handler(req: NextRequest) {
   if (req.method !== 'GET') {
-    return res.status(405).json('Only GET method allowed')
+    return new Response('Method not allowed', { status: 405 })
   }
 
   const response = await getNowPlaying()
 
   if (response.status === 204 || response.status > 400) {
-    return res.status(200).json({ isPlaying: false })
+    return new Response(JSON.stringify({ isPlaying: false }), {
+      status: 200,
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
   }
 
   const song = await response.json()
 
   if (song.item === null) {
-    return res.status(200).json({ isPlaying: false })
+    return new Response(JSON.stringify({ isPlaying: false }), {
+      status: 200,
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
   }
 
   const isPlaying = song.is_playing
   const title = song.item.name
   const artist = song.item.artists
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    .map((_artist: any) => _artist.name)
+    .map((_artist: { name: string }) => _artist.name)
     .join(', ')
   const album = song.item.album.name
   const albumImageUrl = song.item.album.images[0].url
   const songUrl = song.item.external_urls.spotify
 
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=60, stale-while-revalidate=30'
+  return new Response(
+    JSON.stringify({
+      album,
+      albumImageUrl,
+      artist,
+      isPlaying,
+      songUrl,
+      title
+    }),
+    {
+      status: 200,
+      headers: {
+        'content-type': 'application/json',
+        'cache-control': 'public, s-maxage=60, stale-while-revalidate=30'
+      }
+    }
   )
-
-  return res.status(200).json({
-    album,
-    albumImageUrl,
-    artist,
-    isPlaying,
-    songUrl,
-    title
-  })
 }

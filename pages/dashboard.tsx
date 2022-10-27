@@ -2,6 +2,7 @@ import useSWR from 'swr'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Layout from '@/components/layout'
 import Metric from '@/components/metric'
+import Tracks from '@/components/top-tracks'
 import fetcher from '@/lib/fetcher'
 import { healthData, Views } from '@/lib/types'
 
@@ -19,7 +20,7 @@ export default function Dashboard(): JSX.Element {
 
   if (!session) {
     return (
-      <Layout>
+      <Layout title="Dashboard - Dhruv Gursahani">
         <div className="mx-auto my-10 text-lg font-bold">
           Not authenticated/authorized
           <div
@@ -36,7 +37,7 @@ export default function Dashboard(): JSX.Element {
   return (
     <Layout>
       <div className="flex flex-col items-start justify-center w-full mx-auto mb-16 xl:w-6/12">
-        <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
+        <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
           Dashboard
         </h1>
         <p className="mb-2">
@@ -75,6 +76,10 @@ export default function Dashboard(): JSX.Element {
           <Metric title="Blog total views">{viewsData?.total}</Metric>
           <Metric title="Guestbook entries">{guestbookCount?.count}</Metric>
         </div>
+        <h2 className="mb-4 mt-16 text-3xl font-bold tracking-tight text-black dark:text-white">
+          Top Spotify Tracks
+        </h2>
+        <Tracks />
       </div>
     </Layout>
   )
