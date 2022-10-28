@@ -1,15 +1,27 @@
-import { getSession } from 'next-auth/react'
-
-import prisma from '@/lib/prisma'
-
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { getSession } from 'next-auth/react'
+import prisma from '@/lib/prisma'
+import {
+  BadRequest,
+  isValidHttpMethod,
+  MethodNotAllowed,
+  Unauthorized
+} from '@/lib/api'
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  if (!isValidHttpMethod(req.method, ['GET', 'DELETE', 'PUT'])) {
+    return MethodNotAllowed(res)
+  }
+
   const session = await getSession({ req })
   const { id } = req.query
+
+  if (!id || !Number(id)) {
+    return BadRequest(res, 'Invalid id')
+  }
 
   const entry = await prisma.guestbook.findUnique({
     where: {
@@ -18,7 +30,7 @@ export default async function handler(
   })
 
   if (!entry) {
-    return res.status(400).send('Can not find the entry')
+    return BadRequest(res, 'Entry not found')
   }
 
   if (req.method === 'GET') {
@@ -31,7 +43,7 @@ export default async function handler(
   }
 
   if (!session || session.user?.email !== entry.email) {
-    return res.status(403).send('Unauthorized')
+    return Unauthorized(res)
   }
 
   if (req.method === 'DELETE') {
@@ -41,27 +53,31 @@ export default async function handler(
       }
     })
 
-    return res.status(200).json({})
+    return res.status(200).json({ message: `Deleted entry ${id}` })
   }
 
-  if (req.method === 'PUT') {
-    const body = (req.body.body || '').slice(0, 500)
-
-    await prisma.guestbook.update({
-      where: {
-        id: Number(id)
-      },
-      data: {
-        body,
-        updated_at: new Date().toISOString()
-      }
-    })
-
-    return res.status(201).json({
-      ...entry,
-      body
-    })
+  if (
+    typeof req.body.body !== 'string' ||
+    req.body.body.trim().length === 0 ||
+    !req.body.body
+  ) {
+    return BadRequest(res, 'Invalid body')
   }
 
-  return res.send('Method not allowed.')
+  const body = req.body.body.slice(0, 500)
+
+  await prisma.guestbook.update({
+    where: {
+      id: Number(id)
+    },
+    data: {
+      body,
+      updated_at: new Date().toISOString()
+    }
+  })
+
+  return res.status(201).json({
+    ...entry,
+    body
+  })
 }

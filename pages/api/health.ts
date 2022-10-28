@@ -1,12 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import type { healthData, ObjectType } from '@/lib/types'
+import { isValidHttpMethod, MethodNotAllowed } from '@/lib/api'
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<healthData | string>
+  res: NextApiResponse<healthData | { message: string }>
 ): void {
-  if (req.method !== 'GET') {
-    return res.status(405).json('Only GET method allowed')
+  if (!isValidHttpMethod(req.method, ['GET'])) {
+    return MethodNotAllowed(res)
   }
 
   const secs = process.uptime()
