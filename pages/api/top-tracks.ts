@@ -1,5 +1,6 @@
 import type { NextApiRequest } from 'next'
 import { getTopTracks } from '@/lib/spotify'
+import { isValidHttpMethod, MethodNotAllowedEdge } from '@/lib/api'
 
 export const config = {
   runtime: 'experimental-edge'
@@ -16,8 +17,8 @@ type ResponseTrackType = {
 }
 
 export default async function handler(req: NextApiRequest) {
-  if (req.method !== 'GET') {
-    return new Response('Method not allowed', { status: 405 })
+  if (!isValidHttpMethod(req.method, ['GET'])) {
+    return MethodNotAllowedEdge()
   }
 
   const response = await getTopTracks()
