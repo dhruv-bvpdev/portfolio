@@ -16,6 +16,8 @@ export default async function handler(
     return MethodNotAllowed(res)
   }
 
+  const session = await getSession({ req })
+
   if (req.method === 'GET') {
     if (req.query.count) {
       const count = await prisma.guestbook.count()
@@ -32,13 +34,12 @@ export default async function handler(
       entries.map(entry => ({
         id: entry.id.toString(),
         body: entry.body,
+        email: session?.user?.email === entry.email ? entry.email : null,
         created_by: entry.created_by,
         updated_at: entry.updated_at
       }))
     )
   }
-
-  const session = await getSession({ req })
 
   if (!session || !session.user || !session.user.email || !session.user.name) {
     return Unauthorized(res)

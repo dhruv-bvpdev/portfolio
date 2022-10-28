@@ -50,7 +50,7 @@ function GuestbookEntry({ entry, user }: GuestBookEntryProps) {
         <p className="text-sm text-gray-600 dark:text-[#c2c2c2]">
           {format(new Date(entry.updated_at), 'd MMM yyyy, k:mm')}
         </p>
-        {user && entry.created_by === user.name && (
+        {user && entry.email === user.email && (
           <>
             <span className="text-gray-600 dark:text-[#c2c2c2]">/</span>
             <button
@@ -148,7 +148,8 @@ export function Guestbook({ fallbackData }: { fallbackData: GuestbookData[] }) {
               aria-label="Your message"
               placeholder="Your message..."
               required
-              className="block w-full py-2 pl-4 pr-32 mt-1 text-gray-900 bg-white border-gray-300 focus:ring-blue-500 focus:border-blue-500 rounded-md dark:bg-gray-800 dark:text-gray-100"
+              type="text"
+              className="mt-1 block w-full rounded-md border border-blue-50 bg-white py-2 pl-4 pr-32 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-blue-opaque dark:bg-gray-800 dark:text-gray-100"
             />
             <button
               className="absolute flex items-center justify-center h-8 px-4 py-1 font-medium text-gray-900 bg-gray-100 rounded right-1 top-1 dark:bg-gray-700 dark:text-gray-100 w-28"
