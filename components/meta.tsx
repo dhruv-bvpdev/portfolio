@@ -44,10 +44,6 @@ const Meta = ({
         content="black-translucent"
       />
       <link rel="manifest" href="/site.webmanifest" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover"
-      />
       <meta name="description" content={description} />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
       {mounted && (
@@ -75,17 +71,19 @@ const Meta = ({
           content={Array.isArray(tags) ? tags.join(', ') : tags}
         />
       )}
-      {tags && (
+      {tags ? (
         <meta
           property="keywords"
           content={Array.isArray(tags) ? tags.join(', ') : tags}
         />
+      ) : (
+        <meta
+          name="keywords"
+          content="Dhruv Gursahani Portfolio Next TailwindCSS Blog"
+        />
       )}
       <meta name="application-name" content="Dhruv Gursahani" />
-      <meta
-        name="keywords"
-        content="Dhruv Gursahani Portfolio Next TailwindCSS Blog"
-      />
+
       <meta name="author" content="Dhruv Gursahani" />
       <meta name="HandheldFriendly" content="true" />
       <meta property="twitter:card" content="summary_large_image" />

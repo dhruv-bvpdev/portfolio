@@ -37,7 +37,7 @@ export default function BlogPost({
                     key={key}
                     className="mx-2 text-purple-700 dark:text-purple-500"
                   >
-                    #{tag}
+                    {tag}
                   </div>
                 )
               })}

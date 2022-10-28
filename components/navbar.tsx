@@ -12,7 +12,7 @@ const Navbar = (): JSX.Element => {
   const { resolvedTheme, setTheme } = useTheme()
 
   return (
-    <nav className="sticky z-50 flex items-center justify-between w-full max-w-4xl p-4 mx-auto my-0 text-gray-900 md:p-8 bg-gray-50 sticky-nav md:my-4 dark:bg-gray-800 dark:text-gray-100">
+    <nav className="glass-bg sticky top-0 z-50 mx-auto my-0 flex w-full max-w-4xl items-center justify-between px-4 pt-2 pb-1 text-gray-900 dark:text-gray-100 md:my-4 md:p-4">
       <div>
         <MobileMenu />
         <div>

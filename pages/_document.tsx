@@ -17,7 +17,6 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head />
         <body className="text-black bg-gray-50 dark:bg-gray-800 dark:text-white">
-          <div id="top" />
           <Main />
           <NextScript />
         </body>
