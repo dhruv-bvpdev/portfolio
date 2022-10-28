@@ -18,6 +18,7 @@ export default function BlogLayout({
       description={post.summary}
       date={new Date(post.publishedAt).toISOString()}
       type="article"
+      tags={post.tags}
     >
       <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">

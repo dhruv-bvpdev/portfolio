@@ -8,13 +8,15 @@ type Props = {
   description?: string
   type?: string
   date?: string
+  tags?: string[] | string
 }
 
 const Meta = ({
   title = 'Dhruv Gursahani',
   type = 'website',
   description = 'Full Stack Developer',
-  date
+  date,
+  tags
 }: Props): JSX.Element => {
   const router = useRouter()
   const [mounted, setMounted] = useState(false)
@@ -25,6 +27,7 @@ const Meta = ({
     <Head>
       <title>{title}</title>
       <meta name="title" content={title} />
+      <meta charSet="utf-8" />
       <meta
         name="viewport"
         content="minimum-scale=1, initial-scale=1, width=device-width"
@@ -66,6 +69,18 @@ const Meta = ({
       <meta property="og:description" content={description} />
       <meta property="og:title" content={title} />
       {date && <meta property="article:published_time" content={date} />}
+      {tags && (
+        <meta
+          property="article:tag"
+          content={Array.isArray(tags) ? tags.join(', ') : tags}
+        />
+      )}
+      {tags && (
+        <meta
+          property="keywords"
+          content={Array.isArray(tags) ? tags.join(', ') : tags}
+        />
+      )}
       <meta name="application-name" content="Dhruv Gursahani" />
       <meta
         name="keywords"

@@ -55,14 +55,14 @@ export default function About() {
             <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
               July 2022
             </time>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
               MBA at Fore School of Management, New Delhi
-            </h3>
+            </h2>
             <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
               Looking forward to excel at the unmatched learning environment at
               FSM and grooming myself to become a top notch corporate manager.
             </p>
-            <Link href="https://www.fsm.ac.in/">
+            <Link href="https://www.fsm.ac.in/" aria-label="FSM HomePage">
               <div className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                 Learn more{' '}
                 <svg

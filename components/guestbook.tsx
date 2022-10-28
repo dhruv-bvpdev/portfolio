@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, Suspense } from 'react'
 
 import { signIn, signOut, useSession } from 'next-auth/react'
 import useSWR, { useSWRConfig } from 'swr'
@@ -170,9 +170,16 @@ export function Guestbook({ fallbackData }: { fallbackData: GuestbookData[] }) {
         )}
       </div>
       <div className="mt-4 space-y-8">
-        {entries?.map(entry => (
-          <GuestbookEntry key={entry.id} entry={entry} user={session?.user} />
-        ))}
+        <Suspense fallback={null}>
+          {entries &&
+            entries.map(entry => (
+              <GuestbookEntry
+                key={entry.id.toString()}
+                entry={entry}
+                user={session?.user}
+              />
+            ))}
+        </Suspense>
       </div>
     </>
   )

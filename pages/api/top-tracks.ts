@@ -1,3 +1,4 @@
+import type { NextApiRequest } from 'next'
 import { getTopTracks } from '@/lib/spotify'
 
 export const config = {
@@ -14,7 +15,11 @@ type ResponseTrackType = {
   }
 }
 
-export default async function handler() {
+export default async function handler(req: NextApiRequest) {
+  if (req.method !== 'GET') {
+    return new Response('Method not allowed', { status: 405 })
+  }
+
   const response = await getTopTracks()
   const { items } = await response.json()
 

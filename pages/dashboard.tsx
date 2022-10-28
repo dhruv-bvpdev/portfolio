@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import useSWR from 'swr'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Layout from '@/components/layout'
@@ -36,51 +37,55 @@ export default function Dashboard(): JSX.Element {
 
   return (
     <Layout>
-      <div className="flex flex-col items-start justify-center w-full mx-auto mb-16 xl:w-6/12">
-        <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
-          Dashboard
-        </h1>
-        <p className="mb-2">
-          Logged in as {session.user?.email} (
-          <button
-            onClick={() => signOut({ callbackUrl: '/' })}
-            className="underline cursor-pointer"
-          >
-            Logout
-          </button>
-          )
-        </p>
-        <div className="w-full my-2 grid gap-4 grid-cols-1 sm:grid-cols-2">
-          <Metric title="Status">
-            <span className={data?.status ? 'text-green-600' : 'text-red-600'}>
-              {data?.status}
-            </span>
-          </Metric>
-          <Metric title="Environment">{data?.env}</Metric>
+      <Suspense fallback={null}>
+        <div className="mx-auto mb-16 flex w-full flex-col items-start justify-center xl:w-6/12">
+          <h1 className="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
+            Dashboard
+          </h1>
+          <p className="mb-2">
+            Logged in as {session.user?.email} (
+            <button
+              onClick={() => signOut({ callbackUrl: '/' })}
+              className="underline"
+            >
+              Logout
+            </button>
+            )
+          </p>
+          <div className="my-2 grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
+            <Metric title="Status">
+              <span
+                className={data?.status ? 'text-green-600' : 'text-red-600'}
+              >
+                {data?.status}
+              </span>
+            </Metric>
+            <Metric title="Environment">{data?.env}</Metric>
 
-          <h2 className="mt-3 text-xl font-bold sm:col-span-2">Health</h2>
-          <Metric title="Uptime">{data?.uptime}</Metric>
-          <Metric title="Rss">{data?.mem.rss}</Metric>
-          <Metric title="Heap total">{data?.mem.heapTotal}</Metric>
-          <Metric title="Heap used">{data?.mem.heapUsed}</Metric>
-          <Metric title="External">{data?.mem.external}</Metric>
-          <Metric title="Array buffers">{data?.mem.arrayBuffers}</Metric>
+            <h2 className="mt-3 text-xl font-bold sm:col-span-2">Health</h2>
+            <Metric title="Uptime">{data?.uptime}</Metric>
+            <Metric title="Rss">{data?.mem.rss}</Metric>
+            <Metric title="Heap total">{data?.mem.heapTotal}</Metric>
+            <Metric title="Heap used">{data?.mem.heapUsed}</Metric>
+            <Metric title="External">{data?.mem.external}</Metric>
+            <Metric title="Array buffers">{data?.mem.arrayBuffers}</Metric>
 
-          <h2 className="mt-3 text-xl font-bold sm:col-span-2">Deployment</h2>
-          <Metric title="Deployed">{data?.vercel.deployed.toString()}</Metric>
-          <Metric title="Vercel environment">{data?.vercel.env}</Metric>
+            <h2 className="mt-3 text-xl font-bold sm:col-span-2">Deployment</h2>
+            <Metric title="Deployed">{data?.vercel.deployed.toString()}</Metric>
+            <Metric title="Vercel environment">{data?.vercel.env}</Metric>
 
-          <h2 className="mt-3 text-xl font-bold sm:col-span-2">
-            Blog/Guestbook
+            <h2 className="mt-3 text-xl font-bold sm:col-span-2">
+              Blog/Guestbook
+            </h2>
+            <Metric title="Blog total views">{viewsData?.total}</Metric>
+            <Metric title="Guestbook entries">{guestbookCount?.count}</Metric>
+          </div>
+          <h2 className="mb-4 mt-16 text-3xl font-bold tracking-tight text-black dark:text-white">
+            Top Spotify Tracks
           </h2>
-          <Metric title="Blog total views">{viewsData?.total}</Metric>
-          <Metric title="Guestbook entries">{guestbookCount?.count}</Metric>
+          <Tracks />
         </div>
-        <h2 className="mb-4 mt-16 text-3xl font-bold tracking-tight text-black dark:text-white">
-          Top Spotify Tracks
-        </h2>
-        <Tracks />
-      </div>
+      </Suspense>
     </Layout>
   )
 }
