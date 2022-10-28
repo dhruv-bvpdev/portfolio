@@ -171,7 +171,7 @@ export function Guestbook({ fallbackData }: { fallbackData: GuestbookData[] }) {
         )}
       </div>
       <div className="mt-4 space-y-8">
-        <Suspense fallback={null}>
+        <Suspense>
           {entries &&
             entries.map(entry => (
               <GuestbookEntry

@@ -16,7 +16,10 @@ export default function Dashboard(): JSX.Element {
   })
 
   const { data } = useSWR<healthData>('/api/health', fetcher)
-  const { data: guestbookCount } = useSWR('/api/guestbook?count=true', fetcher)
+  const { data: guestbookCount } = useSWR<{ count: number }>(
+    '/api/guestbook?count=true',
+    fetcher
+  )
   const { data: viewsData } = useSWR<Views>('/api/views', fetcher)
 
   if (!session) {
@@ -37,7 +40,7 @@ export default function Dashboard(): JSX.Element {
 
   return (
     <Layout>
-      <Suspense fallback={null}>
+      <Suspense>
         <div className="mx-auto mb-16 flex w-full flex-col items-start justify-center xl:w-6/12">
           <h1 className="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
             Dashboard

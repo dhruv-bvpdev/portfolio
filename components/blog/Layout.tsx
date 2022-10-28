@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'react'
+import { PropsWithChildren, Suspense } from 'react'
 import Image from 'next/image'
 import { parseISO, format } from 'date-fns'
 import Layout from '../layout'
@@ -44,18 +44,20 @@ export default function BlogLayout({
             <ViewCounter slug={post.slug} />
           </p>
         </div>
-        <div className="w-full mt-4 prose dark:prose-dark max-w-none">
-          {children}
-        </div>
-        <div className="mt-4 text-sm text-gray-700 dark:text-[#c2c2c2]">
-          <a
-            href={editUrl(post.slug)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {'Edit on GitHub'}
-          </a>
-        </div>
+        <Suspense>
+          <div className="w-full mt-4 prose dark:prose-dark max-w-none">
+            {children}
+          </div>
+          <div className="mt-4 text-sm text-gray-700 dark:text-[#c2c2c2]">
+            <a
+              href={editUrl(post.slug)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {'Edit on GitHub'}
+            </a>
+          </div>
+        </Suspense>
       </article>
     </Layout>
   )
