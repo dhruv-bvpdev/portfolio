@@ -1,15 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import cn from 'classnames'
 import useDelayedRender from 'use-delayed-render'
-import MenuIcon from '@/components/icons/menu-icon'
-import CrossIcon from '@/components/icons/cross-icon'
 import styles from 'styles/mobile-menu.module.css'
 
-export default function MobileMenu() {
+type Props = {
+  isMenuOpen: boolean
+}
+
+export default function MobileMenu({ isMenuOpen }: Props) {
   const router = useRouter()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const { mounted: isMenuMounted, rendered: isMenuRendered } = useDelayedRender(
     isMenuOpen,
@@ -19,16 +20,6 @@ export default function MobileMenu() {
     }
   )
 
-  function toggleMenu() {
-    if (isMenuOpen) {
-      setIsMenuOpen(false)
-      document.body.style.overflow = ''
-    } else {
-      setIsMenuOpen(true)
-      document.body.style.overflow = 'hidden'
-    }
-  }
-
   useEffect(() => {
     return function cleanup() {
       document.body.style.overflow = ''
@@ -37,22 +28,11 @@ export default function MobileMenu() {
 
   return (
     <>
-      <button
-        id="burger"
-        className={cn(styles.burger, 'visible md:hidden')}
-        aria-label="Toggle menu"
-        type="button"
-        onClick={toggleMenu}
-      >
-        <MenuIcon data-hide={isMenuOpen} />
-        <CrossIcon data-hide={!isMenuOpen} />
-      </button>
-
       {isMenuMounted && (
         <ul
           className={cn(
             styles.menu,
-            'flex flex-col absolute bg-gray-100 dark:bg-gray-800 mt-4 md:hidden',
+            'mt-4 md:hidden',
             isMenuRendered && styles.menuRendered
           )}
         >

@@ -64,3 +64,7 @@ export type FormState = {
   state: Form
   message?: string
 }
+
+export type ClickEvent = {
+  preventDefault: () => void
+}

@@ -116,7 +116,7 @@ const Project = ({
           <p className="hidden md:mx-4 md:inline"> </p>
           <div className="flex flex-row justify-end gap-x-4">
             <a
-              href="https://github.com/alex289?tab=repositories"
+              href="https://github.com/dhruv-bvpdev?tab=repositories"
               target="_blank"
               rel="noopener noreferrer"
             >

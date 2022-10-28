@@ -31,7 +31,9 @@ const Layout = ({
     <a href="#skip" className="skip-nav">
       Skip to content
     </a>
-    <Navbar />
+    <header className="frost-effect sticky top-0 z-50">
+      <Navbar />
+    </header>
     <main
       id="skip"
       className="flex flex-col justify-center px-8 bg-gray-50 dark:bg-gray-800 md:mt-6"
