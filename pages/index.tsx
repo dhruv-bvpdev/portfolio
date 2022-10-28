@@ -30,7 +30,7 @@ export default function Index({
 }): JSX.Element {
   return (
     <Layout>
-      <Suspense fallback={null}>
+      <Suspense>
         <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
           <div className="flex flex-col-reverse items-start sm:flex-row">
             <div className="flex flex-col pr-8">
