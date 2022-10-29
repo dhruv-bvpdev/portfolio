@@ -70,7 +70,7 @@ export default function Index({
             <BlogPostCard
               title="Initial Commit"
               slug="initial-commit"
-              gradient="from-[#D8B4FE] to-[#818CF8]"
+              gradient="from-[#D8B4FE] via-[#726dde] to-[#818CF8]"
             />
             <BlogPostCard
               title="Best Terminal Setup"
@@ -80,7 +80,7 @@ export default function Index({
             <BlogPostCard
               title="Best Terminal Setup"
               slug="terminal-setup"
-              gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
+              gradient="from-[#9333EA] via-[#818CF8] to-[#3B82F6]"
             />
           </div>
           <Link href="/blog">

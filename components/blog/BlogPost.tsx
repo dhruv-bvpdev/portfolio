@@ -34,10 +34,7 @@ export default function BlogPost({
           {tags &&
             tags.split(',').map((tag, key) => {
               return (
-                <div
-                  key={key}
-                  className="mx-2 text-purple-700 dark:text-purple-500"
-                >
+                <div key={key} className="mx-2 text-primary">
                   <Link href={`/blog?search=${tag}&filter=tag`} replace shallow>
                     {tag}
                   </Link>

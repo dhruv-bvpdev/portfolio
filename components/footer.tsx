@@ -60,12 +60,27 @@ export default function Footer(): JSX.Element {
         </div>
         <p className="mx-auto text-sm text-gray-500 dark:text-gray-300">
           Powered by{' '}
-          <ExternalLink href="https://nextjs.org/">Next.js</ExternalLink> and{' '}
-          <ExternalLink href="https://tailwindcss.com/">
+          <ExternalLink
+            href="https://nextjs.org/"
+            color="text-primary hover:text-primary-dark"
+          >
+            Next.js
+          </ExternalLink>{' '}
+          and{' '}
+          <ExternalLink
+            href="https://tailwindcss.com/"
+            color="text-primary hover:text-primary-dark"
+          >
             TailwindCSS
           </ExternalLink>
           . Hosted on{' '}
-          <ExternalLink href="https://vercel.com/">Vercel</ExternalLink>.
+          <ExternalLink
+            href="https://vercel.com/"
+            color="text-primary hover:text-primary-dark"
+          >
+            Vercel
+          </ExternalLink>
+          .
         </p>
       </footer>
     </div>

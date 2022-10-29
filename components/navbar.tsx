@@ -27,13 +27,13 @@ const Navbar = (): JSX.Element => {
   }
 
   return (
-    <nav className="ticky top-0 z-50 mx-auto my-0 w-full max-w-3xl items-center justify-between pb-6 pt-1 text-gray-900 dark:text-gray-100 md:my-4 md:flex md:py-4">
+    <nav className="ticky top-0 z-50 mx-auto my-0 w-full max-w-3xl items-center justify-between px-4 pb-6 pt-1 text-gray-900 dark:text-gray-100 md:my-4 md:flex md:py-4 xl:px-0">
       <div>
         <Link href="/">
           <a
             id="nav-home"
             className={`invisible mr-1 text-gray-900 dark:text-gray-100 sm:mr-4 md:visible ${
-              router.asPath === '/' ? 'font-semibold' : ''
+              router.asPath === '/' ? 'font-semibold dark:text-primary' : ''
             }`}
           >
             <span className="dark:link-underline link-underline-black py-1">
@@ -45,7 +45,9 @@ const Navbar = (): JSX.Element => {
           <a
             id="nav-about"
             className={`invisible m-1 text-gray-900 dark:text-gray-100 sm:m-4 md:visible ${
-              router.pathname === '/about' ? 'font-semibold' : ''
+              router.pathname === '/about'
+                ? 'font-semibold dark:text-primary'
+                : ''
             }`}
           >
             <span className="dark:link-underline link-underline-black py-1">
@@ -57,7 +59,9 @@ const Navbar = (): JSX.Element => {
           <a
             id="nav-projects"
             className={`invisible m-1 text-gray-900 dark:text-gray-100 sm:m-4 md:visible ${
-              router.pathname === '/projects' ? 'font-semibold' : ''
+              router.pathname === '/projects'
+                ? 'font-semibold dark:text-primary'
+                : ''
             }`}
           >
             <span className="dark:link-underline link-underline-black py-1">
@@ -69,7 +73,9 @@ const Navbar = (): JSX.Element => {
           <a
             id="nav-blog"
             className={`invisible m-1 text-gray-900 dark:text-gray-100 sm:m-4 md:visible ${
-              router.pathname === '/blog' ? 'font-semibold' : ''
+              router.pathname.includes('blog')
+                ? 'font-semibold dark:text-primary'
+                : ''
             }`}
           >
             <span className="dark:link-underline link-underline-black py-1">
@@ -81,7 +87,9 @@ const Navbar = (): JSX.Element => {
           <a
             id="nav-guestbook"
             className={`m-1 hidden text-gray-900 dark:text-gray-100 sm:m-4 md:inline ${
-              router.pathname === '/guestbook' ? 'font-semibold' : ''
+              router.pathname === '/guestbook'
+                ? 'font-semibold dark:text-primary'
+                : ''
             }`}
           >
             <span className="dark:link-underline link-underline-black py-1">
