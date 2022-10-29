@@ -3,13 +3,17 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
 import cn from 'classnames'
+import { useAtom } from 'jotai'
 import MobileMenu from '@/components/mobile-menu'
+import { isOpenAtom } from './command-palette'
 import ThemeToggleIcon from './icons/theme-icon'
 import MenuIcon from './icons/menu-icon'
 import CrossIcon from './icons/cross-icon'
+import MacOptionIcon from './icons/mac-option-icon'
 import styles from 'styles/mobile-menu.module.css'
 
 const Navbar = (): JSX.Element => {
+  const [, setCommandPaletteOpen] = useAtom(isOpenAtom)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const router = useRouter()
   const [mounted, setMounted] = useState(false)
@@ -32,8 +36,10 @@ const Navbar = (): JSX.Element => {
         <Link href="/">
           <a
             id="nav-home"
-            className={`invisible mr-1 text-gray-900 dark:text-gray-100 sm:mr-4 md:visible ${
-              router.asPath === '/' ? 'font-semibold dark:text-primary' : ''
+            className={`invisible mr-1 text-gray-900 sm:mr-4 md:visible ${
+              router.asPath === '/'
+                ? 'font-semibold dark:text-primary'
+                : 'dark:text-gray-100'
             }`}
           >
             <span className="dark:link-underline link-underline-black py-1">
@@ -44,10 +50,10 @@ const Navbar = (): JSX.Element => {
         <Link href="/about">
           <a
             id="nav-about"
-            className={`invisible m-1 text-gray-900 dark:text-gray-100 sm:m-4 md:visible ${
+            className={`invisible m-1 text-gray-900 sm:m-4 md:visible ${
               router.pathname === '/about'
                 ? 'font-semibold dark:text-primary'
-                : ''
+                : 'dark:text-gray-100'
             }`}
           >
             <span className="dark:link-underline link-underline-black py-1">
@@ -58,10 +64,10 @@ const Navbar = (): JSX.Element => {
         <Link href="/projects">
           <a
             id="nav-projects"
-            className={`invisible m-1 text-gray-900 dark:text-gray-100 sm:m-4 md:visible ${
+            className={`invisible m-1 text-gray-900 sm:m-4 md:visible ${
               router.pathname === '/projects'
                 ? 'font-semibold dark:text-primary'
-                : ''
+                : 'dark:text-gray-100'
             }`}
           >
             <span className="dark:link-underline link-underline-black py-1">
@@ -72,10 +78,10 @@ const Navbar = (): JSX.Element => {
         <Link href="/blog">
           <a
             id="nav-blog"
-            className={`invisible m-1 text-gray-900 dark:text-gray-100 sm:m-4 md:visible ${
+            className={`invisible m-1 text-gray-900 sm:m-4 md:visible ${
               router.pathname.includes('blog')
                 ? 'font-semibold dark:text-primary'
-                : ''
+                : 'dark:text-gray-100'
             }`}
           >
             <span className="dark:link-underline link-underline-black py-1">
@@ -86,10 +92,10 @@ const Navbar = (): JSX.Element => {
         <Link href="/guestbook">
           <a
             id="nav-guestbook"
-            className={`m-1 hidden text-gray-900 dark:text-gray-100 sm:m-4 md:inline ${
+            className={`m-1 hidden text-gray-900 sm:m-4 md:inline ${
               router.pathname === '/guestbook'
                 ? 'font-semibold dark:text-primary'
-                : ''
+                : 'dark:text-gray-100'
             }`}
           >
             <span className="dark:link-underline link-underline-black py-1">
@@ -110,6 +116,14 @@ const Navbar = (): JSX.Element => {
           <CrossIcon data-hide={!isMenuOpen} />
         </button>
         <div>
+          <button
+            aria-label="Open Command Palette"
+            type="button"
+            className="mr-3 hidden h-10 w-10 rounded-lg bg-gray-200 p-3 text-3xl ring-gray-300 hover:ring-4 dark:bg-gray-700 md:inline"
+            onClick={() => setCommandPaletteOpen(true)}
+          >
+            <MacOptionIcon />
+          </button>
           <button
             id="dark-mode-toggle"
             aria-label="Toggle Dark Mode"
