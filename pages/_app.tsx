@@ -6,12 +6,12 @@ import Router from 'next/router'
 import dynamic from 'next/dynamic'
 import { ThemeProvider } from 'next-themes'
 import NProgress from 'nprogress'
+import Analytics from '@/components/Analytics'
 import '../styles/globals.css'
 import 'nprogress/nprogress.css'
 
-const CommandPalette = dynamic(() => import('@/components/command-palette'), {
-  suspense: true,
-  ssr: false
+const CommandPalette = dynamic(() => import('../components/command-palette'), {
+  suspense: true
 })
 
 Router.events.on('routeChangeStart', (_url, { shallow }) => {
@@ -33,6 +33,7 @@ function MyApp({
           <CommandPalette />
         </Suspense>
         <Component {...pageProps} />
+        <Analytics />
       </ThemeProvider>
     </SessionProvider>
   )

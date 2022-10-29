@@ -31,10 +31,10 @@ export default function Index({
   return (
     <Layout>
       <Suspense>
-        <div className="flex flex-col items-start justify-center max-w-3xl mx-auto mb-16">
+        <div className="mx-auto mb-16 flex max-w-3xl flex-col items-start justify-center">
           <div className="flex flex-col-reverse items-start sm:flex-row">
             <div className="flex flex-col pr-8">
-              <h1 className="mb-1 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
+              <h1 className="mb-1 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
                 Dhruv Gursahani
               </h1>
               <h2 className="mb-4 text-gray-700 dark:text-gray-200">
@@ -49,21 +49,21 @@ export default function Index({
                 you&apos;re here or learn more about me.
               </p>
             </div>
-            <div className="relative mb-8 mr-auto w-[80px] sm:w-[176px] sm:mb-0">
+            <div className="relative mb-8 mr-auto w-[80px] sm:mb-0 sm:w-[176px]">
               <Image
-                alt="Dhruv Gursahani"
+                alt="Alexander Konietzko"
                 height={500}
                 width={500}
                 src={profilePic}
                 placeholder="blur"
-                sizes="30vw"
+                sizes="40vw"
                 priority
                 className="rounded-full"
               />
             </div>
           </div>
 
-          <h3 className="mb-6 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
+          <h3 className="mb-6 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
             Featured Posts
           </h3>
           <div className="flex flex-col gap-6 md:flex-row">
@@ -84,13 +84,13 @@ export default function Index({
             />
           </div>
           <Link href="/blog">
-            <a className="flex h-6 mt-8 mb-16 text-gray-600 rounded-lg dark:text-gray-300 leading-7 hover:text-gray-800 dark:hover:text-gray-200 transition-all">
+            <a className="mt-8 mb-16 flex h-6 rounded-lg leading-7 text-gray-600 transition-all hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-200">
               Read All
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                className="w-6 h-6 ml-1"
+                className="ml-1 h-6 w-6"
               >
                 <path
                   stroke="currentColor"
@@ -105,7 +105,7 @@ export default function Index({
 
           <h3
             id="projects"
-            className="mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white"
+            className="mb-4 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl"
           >
             Projects
           </h3>
@@ -113,13 +113,13 @@ export default function Index({
             <Project fallbackData={fallbackData} />
           </h2>
           <Link href="/projects">
-            <a className="flex h-6 mt-4 mb-16 text-gray-600 rounded-lg dark:text-gray-300 leading-7 hover:text-gray-800 dark:hover:text-gray-200 transition-all">
+            <a className="mt-4 mb-16 flex h-6 rounded-lg leading-7 text-gray-600 transition-all hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-200">
               See More
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                className="w-6 h-6 ml-1"
+                className="ml-1 h-6 w-6"
               >
                 <path
                   stroke="currentColor"
