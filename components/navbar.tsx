@@ -107,7 +107,10 @@ const Navbar = (): JSX.Element => {
       <div className="flex justify-between">
         <button
           id="burger"
-          className={cn(styles.burger, 'visible md:hidden')}
+          className={cn(
+            styles.burger,
+            'umami--click--burger-button visible md:hidden'
+          )}
           aria-label="Toggle menu"
           type="button"
           onClick={toggleMenu}
@@ -119,7 +122,7 @@ const Navbar = (): JSX.Element => {
           <button
             aria-label="Open Command Palette"
             type="button"
-            className="mr-3 hidden h-10 w-10 rounded-lg bg-gray-200 p-3 text-3xl ring-gray-300 hover:ring-4 dark:bg-gray-700 md:inline"
+            className="umami--click--cmd-button mr-3 hidden h-10 w-10 rounded-lg bg-gray-200 p-3 text-3xl ring-gray-300 hover:ring-4 dark:bg-gray-700 md:inline"
             onClick={() => setCommandPaletteOpen(true)}
           >
             <MacOptionIcon />
@@ -128,7 +131,7 @@ const Navbar = (): JSX.Element => {
             id="dark-mode-toggle"
             aria-label="Toggle Dark Mode"
             type="button"
-            className="mr-1 h-10 w-10 rounded-lg bg-gray-200 p-3 ring-gray-300 hover:ring-4 dark:bg-gray-700 md:mr-3"
+            className="umami--click--theme-button mr-1 h-10 w-10 rounded-lg bg-gray-200 p-3 ring-gray-300 hover:ring-4 dark:bg-gray-700 md:mr-3"
             onClick={() =>
               setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
             }

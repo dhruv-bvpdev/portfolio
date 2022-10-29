@@ -8,7 +8,7 @@ export default function Footer(): JSX.Element {
       <footer className="flex flex-col items-start justify-center w-full max-w-3xl mx-auto mb-8">
         <hr className="mb-8 w-full border border-gray-200 bg-gray-200 dark:border-gray-700 dark:bg-gray-700" />
         <NowPlaying />
-        <div className="w-full max-w-2xl pb-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="w-full max-w-3xl pb-12 grid grid-cols-1 gap-4 sm:grid-cols-4">
           <div className="flex flex-col space-y-4">
             <Link href="/">
               <a className="text-gray-500 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-50 transition">
@@ -49,13 +49,14 @@ export default function Footer(): JSX.Element {
             <ExternalLink href="https://github.com/dhruv-bvpdev/portfolio">
               Source code
             </ExternalLink>
-            <ExternalLink href="">Contact</ExternalLink>
-            <a
-              href="mailto:dhruv.gursahani@outlook.com"
-              className="text-gray-500 hover:text-gray-600 transition"
-            >
+            <ExternalLink href="mailto:dhruv.gursahani@outlook.com">
               Email
-            </a>
+            </ExternalLink>
+            <div className="flex flex-col space-y-4">
+              <ExternalLink href="https://dhruvg-analytics.vercel.app/share/k95XWCtz/Portfolio">
+                Analytics
+              </ExternalLink>
+            </div>
           </div>
         </div>
         <p className="mx-auto text-sm text-gray-500 dark:text-gray-300">

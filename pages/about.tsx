@@ -1,5 +1,6 @@
-import Layout from '@/components/layout'
 import Link from 'next/link'
+import Layout from '@/components/layout'
+import Tools from '@/components/tools'
 
 export default function About() {
   return (
@@ -49,6 +50,17 @@ export default function About() {
               </Link>
             </li>
           </ul>
+        </h2>
+
+        <h1 className="mb-4 text-xl font-bold tracking-tight text-black md:text-3xl dark:text-white">
+          Tools
+        </h1>
+        <h2 className="mb-16">
+          <p className="text-gray-600 dark:text-[#c2c2c2]">
+            These are the tools I almost use daily. I really enjoy finding new
+            technologies improving my workflow.
+          </p>
+          <Tools />
         </h2>
 
         <h1 className="mb-4 text-xl font-bold tracking-tight text-black md:text-3xl dark:text-white">

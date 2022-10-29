@@ -28,70 +28,59 @@ export default function CommandPalette() {
       {
         group: 'Navigation',
         title: 'Home',
-        icon: null,
         action: Actions.Router,
         args: '/'
       },
       {
         title: 'About',
-        icon: null,
         action: Actions.Router,
         args: '/about'
       },
       {
         title: 'Projects',
-        icon: null,
         action: Actions.Router,
         args: '/projects'
       },
       {
         title: 'Blog',
-        icon: null,
         action: Actions.Router,
         args: '/blog'
       },
       {
         title: 'Guestbook',
-        icon: null,
         action: Actions.Router,
         args: '/guestbook'
       },
       {
         group: 'Socials',
         title: 'GitHub',
-        icon: null,
         action: Actions.Router,
         args: 'https://github.com/dhruv-bvpdev'
       },
       {
         title: 'Source Code',
-        icon: null,
         action: Actions.Router,
         args: 'https://github.com/dhruv-bvpdev/portfolio'
       },
       {
         title: 'Switch Theme',
-        icon: null,
         action: Actions.Theme,
         args: ''
       },
       {
         title: 'Login (Google)',
-        icon: null,
         action: Actions.Session,
         args: 'google',
         disabled: session ? true : false
       },
       {
         title: 'Login (GitHub)',
-        icon: null,
         action: Actions.Session,
         args: 'github',
         disabled: session ? true : false
       },
       {
         title: `Logout (${session?.user?.name})`,
-        icon: null,
         action: Actions.Session,
         args: '',
         disabled: session ? false : true
@@ -215,7 +204,6 @@ export default function CommandPalette() {
                                 : 'text-gray-500 dark:text-gray-400'
                             )}
                           >
-                            {page.icon}
                             {page.title}
                           </p>
                         </div>

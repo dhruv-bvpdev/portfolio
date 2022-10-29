@@ -6,7 +6,17 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['i.scdn.co'],
+    domains: ['i.scdn.co']
+  },
+  async redirects() {
+    return [
+      {
+        source: '/analytics',
+        destination:
+          'https://dhruvg-analytics.vercel.app/share/k95XWCtz/Portfolio',
+        permanent: true
+      }
+    ]
   },
   async headers() {
     return [
@@ -20,7 +30,7 @@ const nextConfig = {
 
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' data:;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' data: https://dhruvg-analytics.vercel.app/umami.js;
   child-src 'self';
   style-src 'self' 'unsafe-inline';
   img-src * blob: data:;
