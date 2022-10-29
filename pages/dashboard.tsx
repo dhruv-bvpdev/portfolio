@@ -20,6 +20,12 @@ export default function Dashboard(): JSX.Element {
     '/api/guestbook?count=true',
     fetcher
   )
+
+  const { data: commentCount } = useSWR<{ count: number }>(
+    '/api/comment?count=true',
+    fetcher
+  )
+
   const { data: viewsData } = useSWR<Views>('/api/views', fetcher)
 
   if (!session) {
@@ -81,6 +87,7 @@ export default function Dashboard(): JSX.Element {
               Blog/Guestbook
             </h2>
             <Metric title="Blog total views">{viewsData?.total}</Metric>
+            <Metric title="Blog comments">{commentCount?.count}</Metric>
             <Metric title="Guestbook entries">{guestbookCount?.count}</Metric>
           </div>
           <h2 className="mb-4 mt-16 text-3xl font-bold tracking-tight text-black dark:text-white">

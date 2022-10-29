@@ -1,7 +1,9 @@
 import { PropsWithChildren, Suspense } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { parseISO, format } from 'date-fns'
 import Layout from '../layout'
+import Comment from '../comment'
 import ViewCounter from '@/components/blog/ViewCounter'
 import type { Blog } from 'contentlayer/generated'
 
@@ -44,6 +46,15 @@ export default function BlogLayout({
             <ViewCounter slug={post.slug} />
           </p>
         </div>
+        <div className="mt-2 flex w-full text-xs">
+          {post.tags.split(',').map(tag => (
+            <Link href={`/blog?filter=tag&search=${tag}`} key={tag}>
+              <a className="mx-2 rounded-xl border border-gray-600 px-2 py-1 hover:bg-gray-200 dark:border-gray-400 dark:hover:bg-gray-600">
+                {tag}
+              </a>
+            </Link>
+          ))}
+        </div>
         <Suspense>
           <div className="w-full mt-4 prose dark:prose-dark max-w-none">
             {children}
@@ -58,6 +69,7 @@ export default function BlogLayout({
             </a>
           </div>
         </Suspense>
+        <Comment slug={post.slug} />
       </article>
     </Layout>
   )
