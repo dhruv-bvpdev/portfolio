@@ -46,7 +46,7 @@ export default function Blog({ posts }: { posts: Post[] }) {
       title="Blog – Dhruv Gursahani"
       description="Thoughts on programming, tech, music, and my personal life."
     >
-      <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
+      <div className="mx-auto mb-16 flex w-full max-w-3xl flex-col items-start justify-center">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           Blog
         </h1>
@@ -61,14 +61,24 @@ export default function Blog({ posts }: { posts: Post[] }) {
             onChange={e => setSearchValue(e.target.value)}
             placeholder="Search articles"
             defaultValue={searchValue}
-            className="block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-800 dark:bg-gray-700 dark:text-gray-100"
+            className="block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-800 dark:bg-gray-700 dark:text-gray-100 dark:focus:border-blue-500"
           />
+          <svg
+            className="absolute right-12 top-3 h-5 w-5 cursor-pointer text-gray-400 dark:text-gray-300"
+            stroke="currentColor"
+            fill="currentColor"
+            strokeWidth="0"
+            viewBox="0 0 14 14"
+            onClick={() => setShowDropdown(!showDropdown)}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"></path>
+          </svg>
           <svg
             className="absolute right-3 top-3 h-5 w-5 cursor-pointer text-gray-400 dark:text-gray-300"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            onClick={() => setShowDropdown(!showDropdown)}
             stroke="currentColor"
           >
             <path
@@ -114,7 +124,7 @@ export default function Blog({ posts }: { posts: Post[] }) {
         </div>
         <Suspense>
           <h2 className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
-            All Posts
+            All Posts ({filteredBlogPosts.length})
           </h2>
           {!filteredBlogPosts.length && (
             <p className="mb-4 text-gray-600 dark:text-[#c2c2c2]">

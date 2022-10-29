@@ -31,7 +31,7 @@ export default function Index({
   return (
     <Layout>
       <Suspense>
-        <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
+        <div className="flex flex-col items-start justify-center max-w-3xl mx-auto mb-16">
           <div className="flex flex-col-reverse items-start sm:flex-row">
             <div className="flex flex-col pr-8">
               <h1 className="mb-1 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
