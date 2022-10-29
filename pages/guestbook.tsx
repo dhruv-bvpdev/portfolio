@@ -11,7 +11,7 @@ export default function Guestbook({
 }) {
   return (
     <Layout title="Guestbook - Dhruv Gursahani">
-      <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
+      <div className="mx-auto mb-16 flex w-full max-w-3xl flex-col items-start justify-center">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           Guestbook
         </h1>
