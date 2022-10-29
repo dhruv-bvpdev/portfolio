@@ -6,7 +6,7 @@ import Router from 'next/router'
 import dynamic from 'next/dynamic'
 import { ThemeProvider } from 'next-themes'
 import NProgress from 'nprogress'
-import Analytics from '@/components/Analytics'
+import Analytics from '../components/analytics'
 import '../styles/globals.css'
 import 'nprogress/nprogress.css'
 
