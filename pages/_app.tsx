@@ -1,11 +1,18 @@
+import { Suspense } from 'react'
 import type { AppProps } from 'next/app'
 import { Session } from 'next-auth'
 import { SessionProvider } from 'next-auth/react'
 import Router from 'next/router'
+import dynamic from 'next/dynamic'
 import { ThemeProvider } from 'next-themes'
 import NProgress from 'nprogress'
 import '../styles/globals.css'
 import 'nprogress/nprogress.css'
+
+const CommandPalette = dynamic(() => import('@/components/command-palette'), {
+  suspense: true,
+  ssr: false
+})
 
 Router.events.on('routeChangeStart', (_url, { shallow }) => {
   if (!shallow) {
@@ -22,6 +29,9 @@ function MyApp({
   return (
     <SessionProvider session={pageProps.session}>
       <ThemeProvider attribute="class">
+        <Suspense>
+          <CommandPalette />
+        </Suspense>
         <Component {...pageProps} />
       </ThemeProvider>
     </SessionProvider>
