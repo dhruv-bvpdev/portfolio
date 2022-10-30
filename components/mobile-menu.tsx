@@ -43,13 +43,12 @@ export default function MobileMenu({ isMenuOpen }: Props) {
             )}
             style={{ transitionDelay: '150ms' }}
           >
-            <Link href="/">
-              <a
-                id="mobile-nav-home"
-                className="flex w-auto p-1 pb-4 ml-4 text-lg sm:p-4"
-              >
-                Home
-              </a>
+            <Link
+              href="/"
+              id="mobile-nav-home"
+              className="flex w-auto p-1 pb-4 ml-4 text-lg sm:p-4"
+            >
+              Home
             </Link>
           </li>
           <li
@@ -59,13 +58,12 @@ export default function MobileMenu({ isMenuOpen }: Props) {
             )}
             style={{ transitionDelay: '175ms' }}
           >
-            <Link href="/about">
-              <a
-                id="mobile-nav-about"
-                className="flex w-auto p-1 pb-4 ml-4 text-lg sm:p-4"
-              >
-                About
-              </a>
+            <Link
+              href="/about"
+              id="mobile-nav-about"
+              className="flex w-auto p-1 pb-4 ml-4 text-lg sm:p-4"
+            >
+              About
             </Link>
           </li>
           <li
@@ -76,13 +74,12 @@ export default function MobileMenu({ isMenuOpen }: Props) {
             )}
             style={{ transitionDelay: '200ms' }}
           >
-            <Link href="/projects">
-              <a
-                id="mobile-nav-projects"
-                className="flex w-auto p-1 pb-4 ml-4 text-lg sm:p-4"
-              >
-                Projects
-              </a>
+            <Link
+              href="/projects"
+              id="mobile-nav-projects"
+              className="flex w-auto p-1 pb-4 ml-4 text-lg sm:p-4"
+            >
+              Projects
             </Link>
           </li>
           <li
@@ -92,13 +89,12 @@ export default function MobileMenu({ isMenuOpen }: Props) {
             )}
             style={{ transitionDelay: '250ms' }}
           >
-            <Link href="/blog">
-              <a
-                id="mobile-nav-blog"
-                className="flex w-auto p-1 pb-4 ml-4 text-lg sm:p-4"
-              >
-                Blog
-              </a>
+            <Link
+              href="/blog"
+              id="mobile-nav-blog"
+              className="flex w-auto p-1 pb-4 ml-4 text-lg sm:p-4"
+            >
+              Blog
             </Link>
           </li>
           <li
@@ -109,13 +105,12 @@ export default function MobileMenu({ isMenuOpen }: Props) {
             )}
             style={{ transitionDelay: '275ms' }}
           >
-            <Link href="/guestbook">
-              <a
-                id="mobile-nav-guestbook"
-                className="flex w-auto p-1 pb-4 ml-4 text-lg sm:p-4"
-              >
-                Guestbook
-              </a>
+            <Link
+              href="/guestbook"
+              id="mobile-nav-guestbook"
+              className="flex w-auto p-1 pb-4 ml-4 text-lg sm:p-4"
+            >
+              Guestbook
             </Link>
           </li>
         </ul>

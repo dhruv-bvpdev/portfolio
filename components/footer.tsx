@@ -10,32 +10,40 @@ export default function Footer(): JSX.Element {
         <NowPlaying />
         <div className="w-full max-w-3xl pb-12 grid grid-cols-1 gap-4 sm:grid-cols-4">
           <div className="flex flex-col space-y-4">
-            <Link href="/">
-              <a className="text-gray-500 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-50 transition">
-                Home
-              </a>
+            <Link
+              href="/"
+              id="footer-home"
+              className="text-gray-500 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-50 transition"
+            >
+              Home
             </Link>
-            <Link href="/about">
-              <a className="text-gray-500 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-50 transition">
-                About
-              </a>
+            <Link
+              href="/about"
+              id="footer-about"
+              className="text-gray-500 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-50 transition"
+            >
+              About
             </Link>
-            <Link href="/projects">
-              <a className="text-gray-500 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-50 transition">
-                Projects
-              </a>
+            <Link
+              href="/projects"
+              id="footer-projects"
+              className="text-gray-500 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-50 transition"
+            >
+              Projects
             </Link>
           </div>
           <div className="flex flex-col space-y-4">
-            <Link href="/blog">
-              <a className="text-gray-500 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-50 transition">
-                Blog
-              </a>
+            <Link
+              href="/blog"
+              className="text-gray-500 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-50 transition"
+            >
+              Blog
             </Link>
-            <Link href="/guestbook">
-              <a className="text-gray-500 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-50 transition">
-                Guestbook
-              </a>
+            <Link
+              href="/guestbook"
+              className="text-gray-500 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-50 transition"
+            >
+              Guestbook
             </Link>
             <ExternalLink href="https://twitter.com/dhruv_gursahani">
               Twitter
