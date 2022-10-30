@@ -31,7 +31,7 @@ const Navbar = (): JSX.Element => {
   }
 
   return (
-    <nav className="ticky top-0 z-50 mx-auto my-0 w-full max-w-3xl items-center justify-between px-4 pb-6 pt-1 text-gray-900 dark:text-gray-100 md:my-4 md:flex md:py-4 xl:px-0">
+    <nav className="sticky top-0 z-50 mx-auto my-0 w-full max-w-3xl items-center justify-between px-4 pb-6 pt-1 text-gray-900 dark:text-gray-100 md:my-4 md:flex md:py-4 xl:px-0">
       <div>
         <Link href="/">
           <a
@@ -122,7 +122,7 @@ const Navbar = (): JSX.Element => {
           <button
             aria-label="Open Command Palette"
             type="button"
-            className="umami--click--cmd-button mr-3 hidden h-10 w-10 rounded-lg bg-gray-200 p-3 text-3xl ring-gray-300 hover:ring-4 dark:bg-gray-700 md:inline"
+            className="umami--click--cmd-button mr-3 h-10 w-10 rounded-lg bg-gray-200 p-3 text-3xl ring-gray-300 hover:ring-4 dark:bg-gray-700"
             onClick={() => setCommandPaletteOpen(true)}
           >
             <MacOptionIcon />
