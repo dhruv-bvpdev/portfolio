@@ -48,23 +48,23 @@ export default function Footer(): JSX.Element {
             <ExternalLink href="https://twitter.com/dhruv_gursahani">
               Twitter
             </ExternalLink>
+          </div>
+          <div className="flex flex-col space-y-4">
             <ExternalLink href="https://github.com/dhruv-bvpdev">
               GitHub
             </ExternalLink>
-          </div>
-          <div className="flex flex-col space-y-4">
             <ExternalLink href="">My setup</ExternalLink>
             <ExternalLink href="https://github.com/dhruv-bvpdev/portfolio">
               Source code
             </ExternalLink>
+          </div>
+          <div className="flex flex-col space-y-4">
             <ExternalLink href="mailto:dhruv.gursahani@outlook.com">
               Email
             </ExternalLink>
-            <div className="flex flex-col space-y-4">
-              <ExternalLink href="https://dhruvg-analytics.vercel.app/share/k95XWCtz/Portfolio">
-                Analytics
-              </ExternalLink>
-            </div>
+            <ExternalLink href="https://dhruvg-analytics.vercel.app/share/k95XWCtz/Portfolio">
+              Analytics
+            </ExternalLink>
           </div>
         </div>
         <p className="mx-auto text-sm text-gray-500 dark:text-gray-300">
