@@ -28,9 +28,10 @@ const Meta = ({
       <title>{title}</title>
       <meta name="title" content={title} />
       <meta charSet="utf-8" />
+      <meta name="viewport" content="initial-scale=1, width=device-width" />
       <meta
-        name="viewport"
-        content="minimum-scale=1, initial-scale=1, width=device-width"
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"
       />
       <meta
         name="apple-mobile-web-app-status-bar-style"
@@ -57,6 +58,12 @@ const Meta = ({
       />
       <meta property="og:description" content={description} />
       <meta property="og:title" content={title} />
+      <meta
+        property="og:image"
+        content={`/api/og${
+          title !== 'Dhruv Gursahani' ? '?title=' + title : ''
+        }`}
+      />
       {date && <meta property="article:published_time" content={date} />}
       {tags && (
         <meta
@@ -79,6 +86,23 @@ const Meta = ({
 
       <meta name="author" content="Dhruv Gursahani" />
       <meta name="HandheldFriendly" content="true" />
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/static/icon/apple-touch-icon.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/static/icon/favicon-32x32.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/static/icon/favicon-16x16.png"
+      />
       <meta property="twitter:card" content="summary_large_image" />
       <meta
         property="twitter:url"
@@ -86,6 +110,12 @@ const Meta = ({
       />
       <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={description} />
+      <meta
+        name="twitter:image:src"
+        content={`/api/og${
+          title !== 'Dhruv Gursahani' ? '?title=' + title : ''
+        }`}
+      />
     </Head>
   )
 }
