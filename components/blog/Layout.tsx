@@ -32,7 +32,7 @@ export default function BlogLayout({
               alt="Dhruv Gursahani"
               height={24}
               width={24}
-              src="/static/images/PP.jpg"
+              src="/static/images/profilePic.jpg"
               className="rounded-full"
             />
             <p className="ml-2 text-sm text-gray-700 dark:text-[#c2c2c2]">
@@ -48,10 +48,12 @@ export default function BlogLayout({
         </div>
         <div className="mt-2 flex w-full text-xs">
           {post.tags.split(',').map(tag => (
-            <Link href={`/blog?filter=tag&search=${tag}`} key={tag}>
-              <a className="mx-2 rounded-xl border border-gray-600 px-2 py-1 hover:bg-gray-200 dark:border-gray-400 dark:hover:bg-gray-600">
-                {tag}
-              </a>
+            <Link
+              href={`/blog?filter=tag&search=${tag}`}
+              key={tag}
+              className="mx-2 rounded-xl border border-gray-600 px-2 py-1 hover:bg-gray-200 dark:border-gray-400 dark:hover:bg-gray-600"
+            >
+              {tag}
             </Link>
           ))}
         </div>

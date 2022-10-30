@@ -6,7 +6,7 @@ import Layout from '@/components/layout'
 import Project from '@/components/projects'
 import BlogPostCard from '@/components/blog/BlogPostCard'
 import type { Projects } from '@/lib/types'
-import profilePic from '../public/static/images/PP.jpg'
+import profilePic from '../public/static/images/profilePic.jpg'
 
 export const getStaticProps: GetStaticProps = async () => {
   const reposResponse = await fetch(
@@ -40,13 +40,12 @@ export default function Index({
               <h2 className="mb-4 text-gray-700 dark:text-gray-200">
                 MBA Student at{' '}
                 <span className="font-semibold">
-                  Fore School of Management, New Delhi
+                  Fore School of Management, New Dehi
                 </span>
               </h2>
               <p className="mb-16 text-gray-600 dark:text-gray-300">
-                I&apos;m also a developer, writer and creator. You&apos;ve found
-                my personal slice of the internet –&nbsp;sign my guestbook while
-                you&apos;re here or learn more about me.
+                Also a developer, writer, creator and evangelist for JAMSTACK
+                architecture
               </p>
             </div>
             <div className="relative mb-8 mr-auto w-[80px] sm:mb-0 sm:w-[176px]">
@@ -56,7 +55,7 @@ export default function Index({
                 width={500}
                 src={profilePic}
                 placeholder="blur"
-                sizes="40vw"
+                sizes="30vw"
                 priority
                 className="rounded-full"
               />
@@ -66,7 +65,7 @@ export default function Index({
           <h3 className="mb-6 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
             Featured Posts
           </h3>
-          <div className="w-full flex flex-col gap-6 md:flex-row">
+          <div className="flex flex-col gap-6 md:flex-row">
             <BlogPostCard
               title="Initial Commit"
               slug="initial-commit"
@@ -78,29 +77,30 @@ export default function Index({
               gradient="from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
             />
             <BlogPostCard
-              title="Best Terminal Setup"
+              title="How to Deploy a full stack web app on vercel"
               slug="terminal-setup"
               gradient="from-[#9333EA] via-[#818CF8] to-[#3B82F6]"
             />
           </div>
-          <Link href="/blog">
-            <a className="mt-8 mb-16 flex h-6 items-center rounded-lg leading-7 text-gray-600 transition-all hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-200">
-              Read All
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                className="ml-1 h-6 w-6"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17.5 12h-15m11.667-4l3.333 4-3.333-4zm3.333 4l-3.333 4 3.333-4z"
-                />
-              </svg>
-            </a>
+          <Link
+            href="/blog"
+            className="mt-8 mb-16 flex h-6 cursor-pointer items-center rounded-lg leading-7 text-gray-600 transition-all hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-200"
+          >
+            Read All
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="ml-1 h-6 w-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+              />
+            </svg>
           </Link>
 
           <h3
@@ -112,24 +112,25 @@ export default function Index({
           <h2 className="text-gray-600 dark:text-gray-200">
             <Project fallbackData={fallbackData} />
           </h2>
-          <Link href="/projects">
-            <a className="mt-4 mb-16 flex h-6 rounded-lg leading-7 text-gray-600 transition-all hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-200">
-              See More
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                className="ml-1 h-6 w-6"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17.5 12h-15m11.667-4l3.333 4-3.333-4zm3.333 4l-3.333 4 3.333-4z"
-                />
-              </svg>
-            </a>
+          <Link
+            href="/projects"
+            className="mt-4 mb-16 flex h-6 cursor-pointer items-center rounded-lg leading-7 text-gray-600 transition-all hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-200"
+          >
+            See More
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="ml-1 h-6 w-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+              />
+            </svg>
           </Link>
         </div>
       </Suspense>

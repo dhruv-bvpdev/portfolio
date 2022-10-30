@@ -32,13 +32,6 @@ const Meta = ({
         name="viewport"
         content="minimum-scale=1, initial-scale=1, width=device-width"
       />
-      <link
-        rel="preload"
-        href="static/fonts/ibm-plex-sans-var.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin="anonymous"
-      />
       <meta
         name="apple-mobile-web-app-status-bar-style"
         content="black-translucent"

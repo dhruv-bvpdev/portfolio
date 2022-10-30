@@ -35,18 +35,20 @@ export default function About() {
           <ul className="list-disc">
             <li>
               Github:{' '}
-              <Link href="https://github.com/dhruv-bvpdev">
-                <a className="text-primary hover:text-primary-dark dark:text-primary dark:hover:text-primary-dark">
-                  @dhruv-bvpdev
-                </a>
+              <Link
+                href="https://github.com/dhruv-bvpdev"
+                className="text-primary hover:text-primary-dark dark:text-primary dark:hover:text-primary-dark"
+              >
+                @dhruv-bvpdev
               </Link>
             </li>
             <li>
               Website:{' '}
-              <Link href="https://dhruvgursahani.vercel.app">
-                <a className="text-primary hover:text-primary-dark dark:text-primary dark:hover:text-primary-dark">
-                  https://dhruvgursahani.vercel.app/
-                </a>
+              <Link
+                href="https://dhruvgursahani.vercel.app"
+                className="text-primary hover:text-primary-dark dark:text-primary dark:hover:text-primary-dark"
+              >
+                https://dhruvgursahani.vercel.app/
               </Link>
             </li>
           </ul>

@@ -5,10 +5,13 @@ import { SessionProvider } from 'next-auth/react'
 import Router from 'next/router'
 import dynamic from 'next/dynamic'
 import { ThemeProvider } from 'next-themes'
+import { Inter } from '@next/font/google'
 import NProgress from 'nprogress'
 import Analytics from '../components/analytics'
 import '../styles/globals.css'
 import 'nprogress/nprogress.css'
+
+const inter = Inter()
 
 const CommandPalette = dynamic(() => import('../components/command-palette'), {
   suspense: true
@@ -29,11 +32,13 @@ function MyApp({
   return (
     <SessionProvider session={pageProps.session}>
       <ThemeProvider attribute="class">
-        <Suspense>
-          <CommandPalette />
-        </Suspense>
-        <Component {...pageProps} />
-        <Analytics />
+        <div className={inter.className}>
+          <Suspense>
+            <CommandPalette />
+          </Suspense>
+          <Component {...pageProps} />
+          <Analytics />
+        </div>
       </ThemeProvider>
     </SessionProvider>
   )
