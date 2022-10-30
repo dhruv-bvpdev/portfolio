@@ -32,7 +32,7 @@ export default function BlogLayout({
               alt="Dhruv Gursahani"
               height={24}
               width={24}
-              src="/static/images/PP.jpg"
+              src="/static/images/profilePic.jpg"
               className="rounded-full"
             />
             <p className="ml-2 text-sm text-gray-700 dark:text-[#c2c2c2]">
