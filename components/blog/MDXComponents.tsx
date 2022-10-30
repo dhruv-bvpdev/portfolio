@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Link from 'next/link'
-import Image, { ImageProps } from 'next/future/image'
+import Image, { ImageProps } from 'next/image'
 import Step from '@/components/blog/MDXComponents/Step'
 import ProsCard from '@/components/blog/MDXComponents/ProsCard'
 import ConsCard from '@/components/blog/MDXComponents/ConsCard'

@@ -1,9 +1,12 @@
 import { useMemo, useState, useEffect, Suspense } from 'react'
 import { useRouter } from 'next/router'
+import dynamic from 'next/dynamic'
 import { allBlogs } from 'contentlayer/generated'
 import Layout from '@/components/layout'
 import BlogPost from '@/components/blog/BlogPost'
 import { pick } from 'contentlayer/client'
+
+const BlogFilter = dynamic(() => import('@/components/blog/BlogFilter'))
 
 type Post = {
   publishedAt: string
@@ -16,7 +19,6 @@ type Post = {
 export default function Blog({ posts }: { posts: Post[] }) {
   const { query } = useRouter()
   const [searchValue, setSearchValue] = useState('')
-  const [showDropdown, setShowDropdown] = useState(false)
   const [filterBy, setFilterBy] = useState<'name' | 'tag'>('name')
 
   useEffect(() => {
@@ -63,17 +65,7 @@ export default function Blog({ posts }: { posts: Post[] }) {
             defaultValue={searchValue}
             className="block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-900 focus:border-primary focus:ring-primary dark:border-gray-800 dark:bg-gray-700 dark:text-gray-100 dark:focus:border-blue-500"
           />
-          <svg
-            className="absolute right-12 top-3 h-5 w-5 cursor-pointer text-gray-400 dark:text-gray-300"
-            stroke="currentColor"
-            fill="currentColor"
-            strokeWidth="0"
-            viewBox="0 0 14 14"
-            onClick={() => setShowDropdown(!showDropdown)}
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"></path>
-          </svg>
+          <BlogFilter filterBy={filterBy} setFilter={setFilterBy} />
           <svg
             className="absolute right-3 top-3 h-5 w-5 cursor-pointer text-gray-400 dark:text-gray-300"
             xmlns="http://www.w3.org/2000/svg"
@@ -88,39 +80,6 @@ export default function Blog({ posts }: { posts: Post[] }) {
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />
           </svg>
-          <div
-            className={`absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-gray-50 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800 dark:ring-gray-700 ${
-              !showDropdown && 'hidden'
-            }`}
-          >
-            <div className="py-1">
-              <p className="text-semibold mb-1 block border-b px-4 py-2 text-sm text-gray-700 dark:border-gray-300 dark:text-gray-200">
-                Filter
-              </p>
-              <div
-                className={`block cursor-pointer px-4 py-2 text-sm text-gray-700 dark:text-gray-200 ${
-                  filterBy === 'name' && 'font-bold'
-                }`}
-                onClick={() => {
-                  setFilterBy('name')
-                  setShowDropdown(false)
-                }}
-              >
-                Name
-              </div>
-              <div
-                className={`block cursor-pointer px-4 py-2 text-sm text-gray-700 dark:text-gray-200 ${
-                  filterBy === 'tag' && 'font-bold'
-                }`}
-                onClick={() => {
-                  setFilterBy('tag')
-                  setShowDropdown(false)
-                }}
-              >
-                Tag
-              </div>
-            </div>
-          </div>
         </div>
         <Suspense>
           <h2 className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">

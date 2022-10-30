@@ -51,7 +51,7 @@ export default function Index({
             </div>
             <div className="relative mb-8 mr-auto w-[80px] sm:mb-0 sm:w-[176px]">
               <Image
-                alt="Alexander Konietzko"
+                alt="Dhruv Gursahani"
                 height={500}
                 width={500}
                 src={profilePic}
@@ -66,7 +66,7 @@ export default function Index({
           <h3 className="mb-6 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
             Featured Posts
           </h3>
-          <div className="flex flex-col gap-6 md:flex-row">
+          <div className="w-full flex flex-col gap-6 md:flex-row">
             <BlogPostCard
               title="Initial Commit"
               slug="initial-commit"
@@ -84,7 +84,7 @@ export default function Index({
             />
           </div>
           <Link href="/blog">
-            <a className="mt-8 mb-16 flex h-6 rounded-lg leading-7 text-gray-600 transition-all hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-200">
+            <a className="mt-8 mb-16 flex h-6 items-center rounded-lg leading-7 text-gray-600 transition-all hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-200">
               Read All
               <svg
                 xmlns="http://www.w3.org/2000/svg"
