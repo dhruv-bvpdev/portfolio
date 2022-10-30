@@ -28,7 +28,7 @@ export default function Dashboard(): JSX.Element {
 
   const { data: viewsData } = useSWR<Views>('/api/views', fetcher)
 
-  if (!session) {
+  if (!session || !session.user.isAdmin) {
     return (
       <Layout title="Dashboard - Dhruv Gursahani">
         <div className="mx-auto my-10 text-lg font-bold">
