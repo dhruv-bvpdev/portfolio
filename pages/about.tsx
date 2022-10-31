@@ -11,21 +11,22 @@ export default function About() {
         </h1>
         <h2 className="mb-16 text-gray-600 dark:text-[#c2c2c2]">
           <p className="mb-6">
-            Hey, I&apos;m Dhruv. I&apos;m {new Date().getFullYear() - 2001}{' '}
-            years old and come from India. I live in New Delhi and spend my free
-            time playing sports, listening to music or enjoying time with
-            friends and family.
+            As Mark Zuckerberg rightly said coding is an outlet for creativity
+            and its has been my outlet for a very long time now. Having started
+            programming in school I have become fluent in C, Java, C# and
+            Javascript. I apply my passion for developing products with Node.js
+            and Modern Javascript Libraries and Frameworks like React.js and
+            Next.js.
           </p>
           <p className="mb-6">
             {' '}
-            I started working with computers when I was young and started
-            programming in school.
+            However having gained all this coding knowledge I decided to pursue
+            MBA because I wanted an introduction to the management side of
+            things.
           </p>
           <p>
-            I&apos;m currently learning .NET Core but my favourite framework is
-            NextJs. In the future I want to build my own Kubernetes cluster with
-            backend services, database integration and a solid frontend combined
-            by Nginx.
+            Currently, I am learning R to level up my data visualization and
+            analytics skills. I am also a seasoned Power BI developer
           </p>
         </h2>
         <h1 className="mb-4 text-xl font-bold tracking-tight text-black md:text-3xl dark:text-white">

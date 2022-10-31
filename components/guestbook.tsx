@@ -9,7 +9,11 @@ import LoadingSpinner from '@/components/guestbook/LoadingSpinner'
 
 import { ClickEvent, Form, FormState, GuestbookData } from '@/lib/types'
 
-export function Guestbook({ fallbackData }: { fallbackData: GuestbookData[] }) {
+export default function Guestbook({
+  fallbackData
+}: {
+  fallbackData: GuestbookData[]
+}) {
   const { data: session } = useSession()
   const { mutate } = useSWRConfig()
   const [form, setForm] = useState<FormState>({ state: Form.Initial })
