@@ -3,10 +3,15 @@ import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import { allBlogs } from 'contentlayer/generated'
 import Layout from '@/components/layout'
-import BlogPost from '@/components/blog/BlogPost'
 import { pick } from 'contentlayer/client'
 
-const BlogFilter = dynamic(() => import('@/components/blog/BlogFilter'))
+const BlogPost = dynamic(() => import('@/components/blog/BlogPost'), {
+  suspense: true
+})
+
+const BlogFilter = dynamic(() => import('@/components/blog/BlogFilter'), {
+  suspense: true
+})
 
 type Post = {
   publishedAt: string
@@ -65,7 +70,9 @@ export default function Blog({ posts }: { posts: Post[] }) {
             defaultValue={searchValue}
             className="block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-900 focus:border-primary focus:ring-primary dark:border-gray-800 dark:bg-gray-700 dark:text-gray-100 dark:focus:border-blue-500"
           />
-          <BlogFilter filterBy={filterBy} setFilter={setFilterBy} />
+          <Suspense>
+            <BlogFilter filterBy={filterBy} setFilter={setFilterBy} />
+          </Suspense>
           <svg
             className="absolute right-3 top-3 h-5 w-5 cursor-pointer text-gray-400 dark:text-gray-300"
             xmlns="http://www.w3.org/2000/svg"

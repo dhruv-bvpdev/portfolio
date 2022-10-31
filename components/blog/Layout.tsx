@@ -1,11 +1,17 @@
 import { PropsWithChildren, Suspense } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { parseISO, format } from 'date-fns'
 import Layout from '../layout'
-import Comment from '../comment'
-import ViewCounter from '@/components/blog/ViewCounter'
 import type { Blog } from 'contentlayer/generated'
+
+const Comment = dynamic(() => import('@/components/comment'), {
+  suspense: true
+})
+const ViewCounter = dynamic(() => import('@/components/blog/ViewCounter'), {
+  suspense: true
+})
 
 const editUrl = (slug: string) =>
   `https://github.com/dhruv-bvpdev/portfolio/edit/main/data/blog/${slug}.mdx`
@@ -43,7 +49,9 @@ export default function BlogLayout({
           <p className="mt-2 text-sm text-gray-600 dark:text-[#c2c2c2] min-w-32 md:mt-0">
             {post.readingTime.text}
             {` • `}
-            <ViewCounter slug={post.slug} />
+            <Suspense>
+              <ViewCounter slug={post.slug} />
+            </Suspense>
           </p>
         </div>
         <div className="mt-2 flex w-full text-xs">
@@ -70,8 +78,8 @@ export default function BlogLayout({
               {'Edit on GitHub'}
             </a>
           </div>
+          <Comment slug={post.slug} />
         </Suspense>
-        <Comment slug={post.slug} />
       </article>
     </Layout>
   )

@@ -1,10 +1,15 @@
+import { Suspense } from 'react'
 import { GetStaticProps } from 'next'
+import dynamic from 'next/dynamic'
 import prisma from '@/lib/prisma'
 import Layout from '@/components/layout'
-import { Guestbook as GuestbookComponent } from '@/components/guestbook'
 import type { GuestbookData } from '@/lib/types'
 
-export default function Guestbook({
+const Guestbook = dynamic(() => import('@/components/guestbook'), {
+  suspense: true
+})
+
+export default function GuestbookPage({
   fallbackData
 }: {
   fallbackData: GuestbookData[]
@@ -19,7 +24,9 @@ export default function Guestbook({
           Leave a comment below. It could be anything – appreciation,
           information, wisdom, or even humor. Surprise me!
         </p>
-        <GuestbookComponent fallbackData={fallbackData} />
+        <Suspense>
+          <Guestbook fallbackData={fallbackData} />
+        </Suspense>
       </div>
     </Layout>
   )
@@ -42,6 +49,6 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       fallbackData
-    },
+    }
   }
 }
