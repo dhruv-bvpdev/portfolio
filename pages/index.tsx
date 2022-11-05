@@ -77,8 +77,8 @@ export default function Index({
               gradient="from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
             />
             <BlogPostCard
-              title="How to Deploy a full stack web app on vercel"
-              slug="terminal-setup"
+              title="Deploying a PlanetScale, Prisma & Next App to Vercel"
+              slug="pscale-prisma"
               gradient="from-[#9333EA] via-[#818CF8] to-[#3B82F6]"
             />
           </div>
