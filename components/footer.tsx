@@ -53,18 +53,19 @@ export default function Footer(): JSX.Element {
             <ExternalLink href="https://github.com/dhruv-bvpdev">
               GitHub
             </ExternalLink>
-            <ExternalLink href="">My setup</ExternalLink>
             <ExternalLink href="https://github.com/dhruv-bvpdev/portfolio">
               Source code
             </ExternalLink>
-          </div>
-          <div className="flex flex-col space-y-4">
             <ExternalLink href="mailto:dhruv.gursahani@outlook.com">
               Email
             </ExternalLink>
+          </div>
+          <div className="flex flex-col space-y-4">
             <ExternalLink href="https://dhruvg-analytics.vercel.app/share/k95XWCtz/Portfolio">
               Analytics
             </ExternalLink>
+            <ExternalLink href="/feed.xml">Feed</ExternalLink>
+            <ExternalLink href="/sitemap.xml">Sitemap</ExternalLink>
           </div>
         </div>
         <p className="mx-auto text-sm text-gray-500 dark:text-gray-300">
