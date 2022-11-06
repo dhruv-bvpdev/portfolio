@@ -117,7 +117,7 @@ const Meta = ({
       />
       <meta
         name="google-site-verification"
-        content="6B6IGF2yZIYOvWOwhZb74UVI_VH7IDxiChg5yYC6Zsk"
+        content="jjADQI8P4PYTDWk295B52qPwlragOXOWOhwAS9f7rD8"
       />
     </Head>
   )
