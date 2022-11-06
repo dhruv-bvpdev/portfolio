@@ -83,7 +83,6 @@ const Meta = ({
         />
       )}
       <meta name="application-name" content="Dhruv Gursahani" />
-
       <meta name="author" content="Dhruv Gursahani" />
       <meta name="HandheldFriendly" content="true" />
       <link
@@ -115,6 +114,10 @@ const Meta = ({
         content={`/api/og${
           title !== 'Dhruv Gursahani' ? '?title=' + title : ''
         }`}
+      />
+      <meta
+        name="google-site-verification"
+        content="6B6IGF2yZIYOvWOwhZb74UVI_VH7IDxiChg5yYC6Zsk"
       />
     </Head>
   )
