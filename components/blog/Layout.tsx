@@ -69,15 +69,6 @@ export default function BlogLayout({
           <div className="w-full mt-4 prose dark:prose-dark max-w-none">
             {children}
           </div>
-          <div className="mt-4 text-sm text-gray-700 dark:text-[#c2c2c2]">
-            <a
-              href={editUrl(post.slug)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {'Edit on GitHub'}
-            </a>
-          </div>
           <Comment slug={post.slug} />
         </Suspense>
       </article>

@@ -31,7 +31,7 @@ const Project = ({
           <div
             key={index}
             id={project.name}
-            className="p-6 my-3 border border-gray-200 rounded-lg shadow hover:border-primary dark:border-gray-700 dark:hover:border-primary grid lg:grid-cols-5 md:grid-cols-2 gap-4"
+            className="my-3 grid grid-cols-2 gap-4 rounded-lg border border-gray-200 p-6 shadow hover:border-primary dark:border-gray-700 dark:hover:border-primary md:grid-cols-5"
           >
             <div className="flex flex-row">
               <p className="font-semibold text-gray-500 dark:text-white">
@@ -42,7 +42,7 @@ const Project = ({
             <sub className="md:mx-4 md:hidden">{project.language}</sub>
             <p className="hidden md:mx-4 md:inline">{project.language}</p>
             <div className="flex flex-row justify-end gap-x-4">
-              {project.homepage !== '' && (
+              {project.homepage !== '' && project.homepage !== null && (
                 <a
                   href={project.homepage}
                   target="_blank"
