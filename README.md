@@ -24,6 +24,7 @@ Inspired by [leerob](https://github.com/leerob/leerob.io) & Alexander Konietzko
 - `pages/dashboard` - Containing metrics from health api
 - `pages/projects` - Showcase of my current projects on GitHub
 - `pages/about` - General information about me
+- `pages/tweets` - My fav. tweets of all time
 - `pages/*` - All other static pages.
 - `public/*` - Static assets including fonts and images.
 - `prisma/*` - My Prisma schema, which uses a PlanetScale MySQL database.

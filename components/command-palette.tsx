@@ -52,6 +52,11 @@ export default function CommandPalette() {
         args: '/guestbook'
       },
       {
+        title: 'Tweets',
+        action: Actions.Router,
+        args: '/tweets'
+      },
+      {
         group: 'Socials',
         title: 'GitHub',
         action: Actions.Router,

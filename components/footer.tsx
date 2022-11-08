@@ -31,7 +31,6 @@ export default function Footer(): JSX.Element {
             >
               Projects
             </Link>
-            <Link href="/tweets">Tweets</Link>
           </div>
           <div className="flex flex-col space-y-4">
             <Link
@@ -67,6 +66,7 @@ export default function Footer(): JSX.Element {
             </ExternalLink>
             <ExternalLink href="/feed.xml">Feed</ExternalLink>
             <ExternalLink href="/sitemap.xml">Sitemap</ExternalLink>
+            <Link href="/tweets">Tweets</Link>
           </div>
         </div>
         <p className="mx-auto text-sm text-gray-500 dark:text-gray-300">
