@@ -69,3 +69,33 @@ export type FormState = {
 export type ClickEvent = {
   preventDefault: () => void
 }
+
+export type forwardedTweet = {
+  public_metrics: {
+    retweet_count: number
+    reply_count: number
+    like_count: number
+    quote_count: number
+  }
+  edit_history_tweet_ids: string[]
+  created_at: string
+  text: string
+  author_id: string
+  id: string
+  media: {
+    url: string
+    media_key: string
+    width: number
+    type: string
+    height: number
+  }[]
+  author: {
+    name: string
+    id: string
+    username: string
+    url: string
+    protected: boolean
+    profile_image_url: string
+    verified: boolean
+  }
+}
