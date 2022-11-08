@@ -31,6 +31,7 @@ export default function Footer(): JSX.Element {
             >
               Projects
             </Link>
+            <Link href="/tweets">Tweets</Link>
           </div>
           <div className="flex flex-col space-y-4">
             <Link

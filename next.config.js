@@ -11,7 +11,7 @@ const nextConfig = {
     ]
   },
   images: {
-    domains: ['i.scdn.co']
+    domains: ['i.scdn.co', 'pbs.twimg.com']
   },
   async redirects() {
     return [
