@@ -50,6 +50,9 @@ export default function Footer(): JSX.Element {
             </ExternalLink>
           </div>
           <div className="flex flex-col space-y-4">
+            <ExternalLink href="https://linkedin.com/in/dhruvgursahani">
+              LinkedIn
+            </ExternalLink>
             <ExternalLink href="https://github.com/dhruv-bvpdev">
               GitHub
             </ExternalLink>

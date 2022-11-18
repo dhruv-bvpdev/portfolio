@@ -44,6 +44,15 @@ export default function About() {
               </Link>
             </li>
             <li>
+              LinkedIn:{' '}
+              <Link
+                href="https://linkedin.com/in/dhruvgursahani"
+                className="text-primary hover:text-primary-dark dark:text-primary dark:hover:text-primary-dark"
+              >
+                dhruvgursahani
+              </Link>
+            </li>
+            <li>
               Website:{' '}
               <Link
                 href="https://dhruvgursahani.vercel.app"
