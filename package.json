@@ -10,6 +10,18 @@
     "prepare": "husky install",
     "pre-commit": "yarn lint --fix"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dhruv-bvpdev/portfolio.git"
+  },
+  "author": {
+    "name": "Dhruv Gursahani",
+    "url": "https://dhruvgursahani.vercel.app"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dhruv-bvpdev/portfolio/issues"
+  },
   "dependencies": {
     "@headlessui/react": "1.7.4",
     "@next/font": "13.0.4",
