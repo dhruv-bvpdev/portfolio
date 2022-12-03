@@ -13,9 +13,6 @@ const ViewCounter = dynamic(() => import('@/components/blog/ViewCounter'), {
   suspense: true
 })
 
-const editUrl = (slug: string) =>
-  `https://github.com/dhruv-bvpdev/portfolio/edit/main/data/blog/${slug}.mdx`
-
 export default function BlogLayout({
   children,
   post
