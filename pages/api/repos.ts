@@ -1,9 +1,5 @@
 import { type NextRequest } from 'next/server'
-import {
-  BadRequestEdge,
-  isValidHttpMethod,
-  MethodNotAllowedEdge
-} from '@/lib/api'
+import { isValidHttpMethod, MethodNotAllowedEdge } from '@/lib/api'
 
 export const config = {
   runtime: 'experimental-edge'
