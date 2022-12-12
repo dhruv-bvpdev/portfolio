@@ -5,7 +5,6 @@ import Step from '@/components/blog/MDXComponents/Step'
 import ProsCard from '@/components/blog/MDXComponents/ProsCard'
 import ConsCard from '@/components/blog/MDXComponents/ConsCard'
 import ImageWithTheme from '@/components/blog/MDXComponents/ImageWithTheme'
-import CodeBlock from '@/components/blog/MDXComponents/CodeBlock'
 
 const CustomLink = (props: any) => {
   const href = props.href
@@ -33,8 +32,7 @@ const MDXComponents = {
   a: CustomLink,
   ConsCard,
   ProsCard,
-  Step,
-  pre: CodeBlock
+  Step
 }
 
 export default MDXComponents
