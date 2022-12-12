@@ -64,7 +64,7 @@ export default function Footer(): JSX.Element {
             </ExternalLink>
           </div>
           <div className="flex flex-col space-y-4">
-            <ExternalLink href="https://dhruvg-analytics.vercel.app/share/k95XWCtz/Portfolio">
+            <ExternalLink href="https://dhruvg-analytics.vercel.app/share/FHHBZetB/Portfolio">
               Analytics
             </ExternalLink>
             <ExternalLink href="/feed.xml">Feed</ExternalLink>
