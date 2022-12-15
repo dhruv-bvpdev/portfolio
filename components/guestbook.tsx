@@ -1,6 +1,6 @@
 import { useState, useRef, Suspense } from 'react'
 import { signIn, signOut, useSession } from 'next-auth/react'
-import useSWR, { useSWRConfig } from 'swr'
+import useSWR from 'swr'
 import GuestbookEntry from './guestbook/guestbook-entry'
 import fetcher from '@/lib/fetcher'
 import SuccessMessage from '@/components/guestbook/SuccessMessage'
@@ -15,13 +15,16 @@ export default function Guestbook({
   fallbackData: GuestbookData[]
 }) {
   const { data: session } = useSession()
-  const { mutate } = useSWRConfig()
   const [form, setForm] = useState<FormState>({ state: Form.Initial })
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const inputEl = useRef<any>(null)
-  const { data: entries } = useSWR<GuestbookData[]>('/api/guestbook', fetcher, {
-    fallbackData
-  })
+  const { data: entries, mutate } = useSWR<GuestbookData[]>(
+    '/api/guestbook',
+    fetcher,
+    {
+      fallbackData
+    }
+  )
 
   const leaveEntry = async (e: ClickEvent) => {
     e.preventDefault()
@@ -52,7 +55,7 @@ export default function Guestbook({
     }
 
     inputEl.current.value = ''
-    mutate('/api/guestbook')
+    mutate()
     setForm({
       state: Form.Success,
       message: 'Hooray! Thanks for signing my Guestbook.'
