@@ -5,6 +5,20 @@ import { Combobox, Dialog, Transition } from '@headlessui/react'
 import { useTheme } from 'next-themes'
 import { atom, useAtom } from 'jotai'
 import cn from 'classnames'
+import {
+  AdjustmentsVerticalIcon,
+  BookOpenIcon,
+  CodeBracketIcon,
+  CubeTransparentIcon,
+  HomeIcon,
+  IdentificationIcon,
+  LinkIcon,
+  MoonIcon,
+  PencilSquareIcon,
+  PowerIcon,
+  SunIcon,
+  UserIcon
+} from '@heroicons/react/24/outline'
 
 export const isOpenAtom = atom(false)
 export const isCommandPaletteOpenAtom = atom(get => get(isOpenAtom))
@@ -29,69 +43,87 @@ export default function CommandPalette() {
         group: 'Navigation',
         title: 'Home',
         action: Actions.Router,
-        args: '/'
+        args: '/',
+        icon: <HomeIcon className="mr-2 mt-[0.12rem] h-5 w-5" />
       },
       {
         title: 'About',
         action: Actions.Router,
-        args: '/about'
+        args: '/about',
+        icon: <IdentificationIcon className="mr-2 mt-[0.12rem] h-5 w-5" />
       },
       {
         title: 'Projects',
         action: Actions.Router,
-        args: '/projects'
+        args: '/projects',
+        icon: <CubeTransparentIcon className="mr-2 mt-[0.12rem] h-5 w-5" />
       },
       {
         title: 'Blog',
         action: Actions.Router,
-        args: '/blog'
+        args: '/blog',
+        icon: <BookOpenIcon className="mr-2 mt-[0.12rem] h-5 w-5" />
       },
       {
         title: 'Guestbook',
         action: Actions.Router,
-        args: '/guestbook'
+        args: '/guestbook',
+        icon: <PencilSquareIcon className="mr-2 mt-[0.12rem] h-5 w-5" />
       },
       {
-        title: 'Tweets',
+        title: 'Dashboard',
         action: Actions.Router,
-        args: '/tweets'
+        args: '/dashboard',
+        disabled: !session?.user?.isAdmin ?? true,
+        icon: <AdjustmentsVerticalIcon className="mr-2 mt-[0.12rem] h-5 w-5" />
       },
       {
         group: 'Socials',
         title: 'GitHub',
         action: Actions.Router,
-        args: 'https://github.com/dhruv-bvpdev'
+        args: 'https://github.com/dhruv-bvpdev',
+        icon: <LinkIcon className="mr-2 mt-[0.12rem] h-5 w-5" />
       },
       {
         title: 'Source Code',
         action: Actions.Router,
-        args: 'https://github.com/dhruv-bvpdev/portfolio'
+        args: 'https://github.com/dhruv-bvpdev/portfolio',
+        icon: <CodeBracketIcon className="mr-2 mt-[0.12rem] h-5 w-5" />
       },
       {
         title: 'Switch Theme',
         action: Actions.Theme,
-        args: ''
+        args: '',
+        icon:
+          theme === 'light' ? (
+            <MoonIcon className="mr-2 mt-[0.12rem] h-5 w-5" />
+          ) : (
+            <SunIcon className="mr-2 mt-[0.12rem] h-5 w-5" />
+          )
       },
       {
         title: 'Login (Google)',
         action: Actions.Session,
         args: 'google',
-        disabled: session ? true : false
+        disabled: session ? true : false,
+        icon: <UserIcon className="mr-2 mt-[0.12rem] h-5 w-5" />
       },
       {
         title: 'Login (GitHub)',
         action: Actions.Session,
         args: 'github',
-        disabled: session ? true : false
+        disabled: session ? true : false,
+        icon: <UserIcon className="mr-2 mt-[0.12rem] h-5 w-5" />
       },
       {
         title: `Logout (${session?.user?.name})`,
         action: Actions.Session,
         args: '',
-        disabled: session ? false : true
+        disabled: session ? false : true,
+        icon: <PowerIcon className="mr-2 mt-[0.12rem] h-5 w-5" />
       }
     ]
-  }, [session])
+  }, [session, theme])
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -113,7 +145,9 @@ export default function CommandPalette() {
   }, [isOpen, setIsOpen])
 
   const filteredItems = useMemo(() => {
-    return config.filter(({ title }) => title.toLowerCase().includes(search))
+    return config.filter(({ title }) =>
+      title.toLowerCase().includes(search.toLowerCase())
+    )
   }, [search, config])
 
   function handleChange(value: string) {
@@ -195,22 +229,18 @@ export default function CommandPalette() {
                       {({ active }) => (
                         <div
                           className={cn(
-                            'px-4 py-2',
+                            'cursor-pointer px-4 py-2 md:border-l-2',
                             active
-                              ? 'bg-primary'
-                              : 'bg-gray-50 dark:bg-gray-800'
+                              ? 'border-l-primary md:bg-gray-200 md:dark:bg-gray-700'
+                              : 'border-gray-50 bg-gray-50 dark:border-gray-800 dark:bg-gray-800'
                           )}
                         >
-                          <p
-                            className={cn(
-                              'flex flex-row pl-2',
-                              active
-                                ? 'text-white'
-                                : 'text-gray-500 dark:text-gray-400'
-                            )}
-                          >
-                            {page.title}
-                          </p>
+                          <div className="flex flex-row pl-1 text-gray-500 dark:text-gray-400">
+                            <div className="flex">
+                              {page.icon}
+                              {page.title}
+                            </div>
+                          </div>
                         </div>
                       )}
                     </Combobox.Option>

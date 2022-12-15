@@ -1,7 +1,7 @@
 import { Suspense, useRef, useState } from 'react'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { format } from 'date-fns'
-import useSWR, { useSWRConfig } from 'swr'
+import useSWR from 'swr'
 import { comment } from '@prisma/client'
 import fetcher from '@/lib/fetcher'
 import ErrorMessage from '@/components/guestbook/ErrorMessage'
@@ -12,12 +12,11 @@ import { ClickEvent, Form, FormState } from '@/lib/types'
 
 const Comment = ({ slug }: { slug: string }) => {
   const { data: session } = useSession()
-  const { mutate } = useSWRConfig()
 
   const inputEl = useRef<HTMLInputElement | null>(null)
   const [form, setForm] = useState<FormState>({ state: Form.Initial })
 
-  const { data: entries } = useSWR<comment[]>(
+  const { data: entries, mutate } = useSWR<comment[]>(
     `/api/comment?post=${slug}`,
     fetcher
   )
@@ -57,7 +56,7 @@ const Comment = ({ slug }: { slug: string }) => {
     }
 
     inputEl.current.value = ''
-    mutate(`/api/comment?post=${slug}`)
+    mutate()
     setForm({
       state: Form.Success,
       message: 'Hooray! Thanks for leaving a comment.'
@@ -71,7 +70,7 @@ const Comment = ({ slug }: { slug: string }) => {
       method: 'DELETE'
     })
 
-    mutate(`/api/comment?post=${slug}`)
+    mutate()
   }
 
   return (
