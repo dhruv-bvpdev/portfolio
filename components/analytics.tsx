@@ -7,7 +7,7 @@ const Analytics = () => {
         <Script
           async
           defer
-          data-website-id="cbea7cd3-dc1d-4fe2-89b1-ae9ea7e3fd7a"
+          data-website-id="b60e1541-0542-46c0-8f8f-45a814d46232"
           src="https://dhruvg-analytics.vercel.app/umami.js"
         />
       )}
