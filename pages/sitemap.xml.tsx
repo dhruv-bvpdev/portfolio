@@ -20,7 +20,16 @@ const createSitemap = (
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const allPages = [
     ...allBlogs.map(({ slug }: { slug: string }) => `blog/${slug}`),
-    ...['', 'blog', 'dashboard', 'guestbook', 'projects', 'about']
+    ...[
+      '',
+      'blog',
+      'dashboard',
+      'guestbook',
+      'projects',
+      'about',
+      'tweets',
+      'uses'
+    ]
   ]
 
   res.setHeader('Content-Type', 'text/xml')

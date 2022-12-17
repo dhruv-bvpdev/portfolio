@@ -58,8 +58,9 @@ export default function Blog({ posts }: { posts: Post[] }) {
           Blog
         </h1>
         <p className="mb-4 text-gray-600 dark:text-[#c2c2c2]">
-          {/* {t('blog-description').replace('$AMOUNT', posts.length.toString())} */}
-          Blog Description
+          I&apos;ve been writing mostly about web devlopment and random stuff.
+          In total, I&apos;ve written {filteredBlogPosts.length} articles on
+          this blog. Use the search below to filter by title.
         </p>
         <div className="relative w-full mb-4">
           <input
