@@ -42,7 +42,11 @@ export default async function handler(
     })
   }
 
-  if (!session || session.user?.email !== entry.email) {
+  if (
+    !session ||
+    session.user?.email !== entry.email ||
+    !session.user.isAdmin
+  ) {
     return Unauthorized(res)
   }
 

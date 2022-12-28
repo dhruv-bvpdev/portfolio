@@ -3,7 +3,7 @@ import useSWR from 'swr'
 import { animate } from 'motion'
 
 import fetcher from '@/lib/fetcher'
-import { NowPlayingSong } from '@/lib/types'
+import type { NowPlayingSong } from '@/lib/types'
 
 function AnimatedBars() {
   useEffect(() => {

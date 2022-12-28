@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import cn from 'classnames'
-import useDelayedRender from 'use-delayed-render'
+import useDelayedRender from '@/lib/hooks/useDelayedRender'
 import styles from 'styles/mobile-menu.module.css'
 
 type Props = {

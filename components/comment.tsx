@@ -8,7 +8,7 @@ import ErrorMessage from '@/components/guestbook/ErrorMessage'
 import LoadingSpinner from '@/components/guestbook/LoadingSpinner'
 import SuccessMessage from '@/components/guestbook/SuccessMessage'
 
-import { ClickEvent, Form, FormState } from '@/lib/types'
+import { ClickEvent, Form, type FormState } from '@/lib/types'
 
 const Comment = ({ slug }: { slug: string }) => {
   const { data: session } = useSession()
@@ -171,19 +171,21 @@ const Comment = ({ slug }: { slug: string }) => {
                   <p className="text-sm text-gray-600 dark:text-[#c2c2c2]">
                     {format(new Date(entry.updated_at), 'd MMM yyyy, k:mm')}
                   </p>
-                  {session?.user && entry.email === session?.user?.email && (
-                    <>
-                      <span className="text-gray-600 dark:text-[#c2c2c2]">
-                        /
-                      </span>
-                      <button
-                        className="text-sm text-red-600 dark:text-red-400"
-                        onClick={e => deleteEntry(e, entry.id)}
-                      >
-                        Delete
-                      </button>
-                    </>
-                  )}
+                  {session?.user &&
+                    (entry.email === session?.user?.email ||
+                      session.user.isAdmin) && (
+                      <>
+                        <span className="text-gray-600 dark:text-[#c2c2c2]">
+                          /
+                        </span>
+                        <button
+                          className="text-sm text-red-600 dark:text-red-400"
+                          onClick={e => deleteEntry(e, entry.id)}
+                        >
+                          Delete
+                        </button>
+                      </>
+                    )}
                 </div>
               </div>
             ))}

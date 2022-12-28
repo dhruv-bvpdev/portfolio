@@ -3,7 +3,7 @@ import { getTopTracks } from '@/lib/spotify'
 import { isValidHttpMethod, MethodNotAllowedEdge } from '@/lib/api'
 
 export const config = {
-  runtime: 'experimental-edge'
+  runtime: 'edge'
 }
 
 type ResponseTrackType = {

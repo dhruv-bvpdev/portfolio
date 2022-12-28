@@ -7,7 +7,7 @@ import SuccessMessage from '@/components/guestbook/SuccessMessage'
 import ErrorMessage from '@/components/guestbook/ErrorMessage'
 import LoadingSpinner from '@/components/guestbook/LoadingSpinner'
 
-import { ClickEvent, Form, FormState, GuestbookData } from '@/lib/types'
+import { ClickEvent, Form, type FormState, GuestbookData } from '@/lib/types'
 
 export default function Guestbook({
   fallbackData

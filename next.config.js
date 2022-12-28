@@ -13,16 +13,6 @@ const nextConfig = {
   images: {
     domains: ['i.scdn.co', 'pbs.twimg.com']
   },
-  async redirects() {
-    return [
-      {
-        source: '/analytics',
-        destination:
-          'https://dhruvg-analytics.vercel.app/share/k95XWCtz/Portfolio',
-        permanent: true
-      }
-    ]
-  },
   async headers() {
     return [
       {
