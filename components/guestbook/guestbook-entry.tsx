@@ -1,6 +1,5 @@
 import { GuestbookData } from '@/lib/types'
 import { useSWRConfig } from 'swr'
-import { format } from 'date-fns'
 
 import type { ClickEvent } from '@/lib/types'
 
@@ -39,7 +38,13 @@ export default function GuestbookEntry({ entry, user }: GuestBookEntryProps) {
         </p>
         <span className=" text-gray-600 dark:text-[#c2c2c2]">/</span>
         <p className="text-sm text-gray-600 dark:text-[#c2c2c2]">
-          {format(new Date(entry.updated_at), 'd MMM yyyy, k:mm')}
+          {new Date(entry.updated_at).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric'
+          })}
         </p>
         {user && (entry.email === user.email || user.isAdmin) && (
           <>

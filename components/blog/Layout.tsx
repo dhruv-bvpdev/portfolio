@@ -2,7 +2,7 @@ import { PropsWithChildren, Suspense } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
-import { parseISO, format } from 'date-fns'
+import Balancer from 'react-wrap-balancer'
 import Layout from '../layout'
 import type { Blog } from 'contentlayer/generated'
 
@@ -27,7 +27,7 @@ export default function BlogLayout({
     >
       <article className="flex flex-col items-start justify-center w-full max-w-3xl mx-auto mb-16">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
-          {post.title}
+          <Balancer>{post.title}</Balancer>
         </h1>
         <div className="flex flex-col items-start justify-between w-full mt-2 md:flex-row md:items-center">
           <div className="flex items-center">
@@ -40,7 +40,11 @@ export default function BlogLayout({
             />
             <p className="ml-2 text-sm text-gray-700 dark:text-[#c2c2c2]">
               {'Dhruv Gursahani / '}
-              {format(parseISO(post.publishedAt), 'MMMM dd, yyyy')}
+              {new Date(post.publishedAt).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+              })}
             </p>
           </div>
           <p className="mt-2 text-sm text-gray-600 dark:text-[#c2c2c2] min-w-32 md:mt-0">
