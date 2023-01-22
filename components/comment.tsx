@@ -1,6 +1,5 @@
 import { Suspense, useRef, useState } from 'react'
 import { signIn, signOut, useSession } from 'next-auth/react'
-import { format } from 'date-fns'
 import useSWR from 'swr'
 import { comment } from '@prisma/client'
 import fetcher from '@/lib/fetcher'
@@ -169,7 +168,11 @@ const Comment = ({ slug }: { slug: string }) => {
                   </p>
                   <span className=" text-gray-600 dark:text-[#c2c2c2]">/</span>
                   <p className="text-sm text-gray-600 dark:text-[#c2c2c2]">
-                    {format(new Date(entry.updated_at), 'd MMM yyyy, k:mm')}
+                    {new Date(entry.updated_at).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric'
+                    })}
                   </p>
                   {session?.user &&
                     (entry.email === session?.user?.email ||

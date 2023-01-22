@@ -2,10 +2,12 @@ import { Suspense } from 'react'
 import Link from 'next/link'
 import { GetStaticProps } from 'next'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 import Layout from '@/components/layout'
 import Project from '@/components/projects'
 import BlogPostCard from '@/components/blog/BlogPostCard'
 import type { Projects } from '@/lib/types'
+import { FADE_DOWN_ANIMATION_VARIANTS } from '@/lib/constants'
 import profilePic from '../public/static/images/profilePic.jpg'
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -31,22 +33,45 @@ export default function Index({
   return (
     <Layout>
       <Suspense>
-        <div className="mx-auto mb-16 flex max-w-3xl flex-col items-start justify-center">
+        <motion.div
+          className="mx-auto mb-16 flex max-w-3xl flex-col items-start justify-center"
+          initial="hidden"
+          whileInView="show"
+          animate="show"
+          viewport={{ once: true }}
+          variants={{
+            hidden: {},
+            show: {
+              transition: {
+                staggerChildren: 0.15
+              }
+            }
+          }}
+        >
           <div className="flex flex-col-reverse items-start sm:flex-row">
             <div className="flex flex-col pr-8">
-              <h1 className="mb-1 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
+              <motion.h1
+                className="mb-1 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl"
+                variants={FADE_DOWN_ANIMATION_VARIANTS}
+              >
                 Dhruv Gursahani
-              </h1>
-              <h2 className="mb-4 text-gray-700 dark:text-gray-200">
+              </motion.h1>
+              <motion.h2
+                className="mb-4 text-gray-700 dark:text-gray-200"
+                variants={FADE_DOWN_ANIMATION_VARIANTS}
+              >
                 MBA Student at{' '}
                 <span className="font-semibold">
                   Fore School of Management, New Dehi
                 </span>
-              </h2>
-              <p className="mb-16 text-gray-600 dark:text-gray-300">
+              </motion.h2>
+              <motion.p
+                className="mb-16 text-gray-600 dark:text-gray-300"
+                variants={FADE_DOWN_ANIMATION_VARIANTS}
+              >
                 Also a developer, writer, creator and evangelist for JAMSTACK
                 architecture
-              </p>
+              </motion.p>
             </div>
             <div className="relative mb-8 mr-auto w-[80px] sm:mb-0 sm:w-[176px]">
               <Image
@@ -132,7 +157,7 @@ export default function Index({
               />
             </svg>
           </Link>
-        </div>
+        </motion.div>
       </Suspense>
     </Layout>
   )
