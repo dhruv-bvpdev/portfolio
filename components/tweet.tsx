@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { format } from 'date-fns'
 import { forwardedTweet } from '@/lib/types'
 
 export default function Tweet({
@@ -120,7 +119,13 @@ export default function Tweet({
           title={`Time Posted: ${createdAt.toUTCString()}`}
           dateTime={createdAt.toISOString()}
         >
-          {format(createdAt, 'h:mm a - MMM d, y')}
+          {new Date(createdAt).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric'
+          })}
         </time>
       </a>
       <div className="flex text-sm !text-gray-700 dark:!text-gray-300 mt-2">
