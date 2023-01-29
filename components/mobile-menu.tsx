@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import cn from 'classnames'
+import { clsx } from 'clsx'
 import useDelayedRender from '@/lib/hooks/useDelayedRender'
 import styles from 'styles/mobile-menu.module.css'
 
@@ -30,14 +30,14 @@ export default function MobileMenu({ isMenuOpen }: Props) {
     <>
       {isMenuMounted && (
         <ul
-          className={cn(
+          className={clsx(
             styles.menu,
             'mt-4 md:hidden',
             isMenuRendered && styles.menuRendered
           )}
         >
           <li
-            className={cn(
+            className={clsx(
               'ml-3 border-b border-gray-300 dark:border-gray-700',
               router.asPath === '/' && 'font-semibold dark:text-primary'
             )}
@@ -52,7 +52,7 @@ export default function MobileMenu({ isMenuOpen }: Props) {
             </Link>
           </li>
           <li
-            className={cn(
+            className={clsx(
               'ml-3 border-b border-gray-300 dark:border-gray-700',
               router.pathname === '/about' && 'font-semibold dark:text-primary'
             )}
@@ -67,7 +67,7 @@ export default function MobileMenu({ isMenuOpen }: Props) {
             </Link>
           </li>
           <li
-            className={cn(
+            className={clsx(
               'ml-3 border-b border-gray-300 dark:border-gray-700',
               router.pathname === '/projects' &&
                 'font-semibold dark:text-primary'
@@ -83,7 +83,7 @@ export default function MobileMenu({ isMenuOpen }: Props) {
             </Link>
           </li>
           <li
-            className={cn(
+            className={clsx(
               'ml-3 border-b border-gray-300 dark:border-gray-700',
               router.pathname === '/blog' && 'font-semibold dark:text-primary'
             )}
@@ -98,7 +98,7 @@ export default function MobileMenu({ isMenuOpen }: Props) {
             </Link>
           </li>
           <li
-            className={cn(
+            className={clsx(
               'ml-3 border-b border-gray-300 dark:border-gray-700',
               router.pathname === '/guestbook' &&
                 'font-semibold dark:text-primary'

@@ -4,7 +4,7 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 import { Combobox, Dialog, Transition } from '@headlessui/react'
 import { useTheme } from 'next-themes'
 import { atom, useAtom } from 'jotai'
-import cn from 'classnames'
+import { clsx } from 'clsx'
 import {
   BarChart3,
   BookOpen,
@@ -13,7 +13,6 @@ import {
   Fingerprint,
   Folder,
   Home,
-  Languages,
   Link,
   Moon,
   Power,
@@ -210,7 +209,7 @@ export default function CommandPalette() {
             as="div"
             value=""
             onChange={handleChange}
-            className={cn(
+            className={clsx(
               'relative mx-auto max-w-xl overflow-hidden rounded-xl shadow-2xl',
               'divide-y divide-gray-200 bg-gray-50 ring-1 ring-black/5 dark:divide-gray-700 dark:bg-gray-800'
             )}
@@ -218,7 +217,7 @@ export default function CommandPalette() {
             <div className="flex items-center px-4">
               <Combobox.Input
                 onChange={e => setSearch(e.target.value)}
-                className={cn(
+                className={clsx(
                   'h-12 w-full border-0 bg-transparent text-gray-800 dark:text-gray-400',
                   'placeholder-gray-400 focus:ring-0'
                 )}
@@ -238,7 +237,7 @@ export default function CommandPalette() {
                     <Combobox.Option value={`${page.action}:${page.args}`}>
                       {({ active }) => (
                         <div
-                          className={cn(
+                          className={clsx(
                             'cursor-pointer px-4 py-2 sm:border-l-2',
                             active
                               ? 'border-l-primary sm:bg-gray-200 sm:dark:bg-gray-700'
