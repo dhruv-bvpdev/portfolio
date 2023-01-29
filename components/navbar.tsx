@@ -4,12 +4,11 @@ import Link from 'next/link'
 import { useTheme } from 'next-themes'
 import cn from 'classnames'
 import { useAtom } from 'jotai'
+import { Command, X } from 'lucide-react'
 import MobileMenu from '@/components/mobile-menu'
 import { isOpenAtom } from './command-palette'
 import ThemeToggleIcon from './icons/theme-icon'
 import MenuIcon from './icons/menu-icon'
-import CrossIcon from './icons/cross-icon'
-import MacOptionIcon from './icons/mac-option-icon'
 import styles from 'styles/mobile-menu.module.css'
 
 const Navbar = (): JSX.Element => {
@@ -111,7 +110,10 @@ const Navbar = (): JSX.Element => {
           onClick={toggleMenu}
         >
           <MenuIcon data-hide={isMenuOpen} />
-          <CrossIcon data-hide={!isMenuOpen} />
+          <X
+            data-hide={!isMenuOpen}
+            className="absolute h-5 w-5 text-gray-900 dark:text-gray-100"
+          />
         </button>
         <div>
           <button
@@ -120,7 +122,7 @@ const Navbar = (): JSX.Element => {
             className="umami--click--cmd-button mr-3 h-10 w-10 rounded-lg bg-gray-200 p-3 text-3xl ring-gray-300 hover:ring-4 dark:bg-gray-700"
             onClick={() => setCommandPaletteOpen(true)}
           >
-            <MacOptionIcon />
+            <Command className="h-4 w-4 text-gray-800 dark:text-gray-200" />
           </button>
           <button
             id="dark-mode-toggle"
