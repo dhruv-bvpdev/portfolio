@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
-import cn from 'classnames'
+import { clsx } from 'clsx'
 import { Filter } from 'lucide-react'
 
 type Props = {
@@ -32,7 +32,7 @@ export default function BlogFilter({ filterBy, setFilter }: Props) {
               {({ active }) => (
                 <button
                   onClick={() => setFilter('name')}
-                  className={cn(
+                  className={clsx(
                     active
                       ? 'bg-primary text-white'
                       : 'text-gray-900 dark:bg-gray-700 dark:text-gray-100',
@@ -48,7 +48,7 @@ export default function BlogFilter({ filterBy, setFilter }: Props) {
               {({ active }) => (
                 <button
                   onClick={() => setFilter('tag')}
-                  className={cn(
+                  className={clsx(
                     active
                       ? 'bg-primary text-white'
                       : 'text-gray-900 dark:bg-gray-700 dark:text-gray-100',
