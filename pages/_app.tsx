@@ -11,7 +11,7 @@ import Analytics from '../components/analytics'
 import '../styles/globals.css'
 import 'nprogress/nprogress.css'
 
-const inter = Inter()
+const inter = Inter({ subsets: ['latin'] })
 
 const CommandPalette = dynamic(() => import('../components/command-palette'), {
   suspense: true
