@@ -20,7 +20,7 @@ const nextConfig = {
 
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' data: https://dhruvg-analytics.vercel.app/umami.js;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' data: https://dhruvg-analytics.vercel.app/script.js;
   child-src 'self';
   style-src 'self' 'unsafe-inline';
   img-src * blob: data:;

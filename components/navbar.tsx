@@ -101,10 +101,8 @@ const Navbar = (): JSX.Element => {
       <div className="flex justify-between">
         <button
           id="burger"
-          className={clsx(
-            styles.burger,
-            'umami--click--burger-button visible md:hidden'
-          )}
+          data-umami-event="click--burger-button"
+          className={clsx(styles.burger, 'visible md:hidden')}
           aria-label="Toggle menu"
           type="button"
           onClick={toggleMenu}
@@ -119,7 +117,8 @@ const Navbar = (): JSX.Element => {
           <button
             aria-label="Open Command Palette"
             type="button"
-            className="umami--click--cmd-button mr-3 h-10 w-10 rounded-lg bg-gray-200 p-3 text-3xl ring-gray-300 hover:ring-4 dark:bg-gray-700"
+            data-umami-event="click--cmd-button"
+            className="mr-3 h-10 w-10 rounded-lg bg-gray-200 p-3 text-3xl ring-gray-300 hover:ring-4 dark:bg-gray-700"
             onClick={() => setCommandPaletteOpen(true)}
           >
             <Command className="h-4 w-4 text-gray-800 dark:text-gray-200" />
@@ -128,7 +127,8 @@ const Navbar = (): JSX.Element => {
             id="dark-mode-toggle"
             aria-label="Toggle Dark Mode"
             type="button"
-            className="umami--click--theme-button mr-1 h-10 w-10 rounded-lg bg-gray-200 p-3 ring-gray-300 hover:ring-4 dark:bg-gray-700 md:mr-3"
+            data-umami-event="click--theme-button"
+            className="mr-1 h-10 w-10 rounded-lg bg-gray-200 p-3 ring-gray-300 hover:ring-4 dark:bg-gray-700 md:mr-3"
             onClick={() =>
               setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
             }
