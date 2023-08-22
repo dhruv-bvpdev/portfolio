@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { getSession } from 'next-auth/react'
+import { getServerSession } from 'next-auth/next'
 import prisma from '@/lib/prisma'
 import {
   BadRequest,
@@ -7,6 +7,7 @@ import {
   MethodNotAllowed,
   Unauthorized
 } from '@/lib/api'
+import { authOptions } from 'pages/api/auth/[...nextauth]'
 
 export default async function handler(
   req: NextApiRequest,
@@ -16,7 +17,7 @@ export default async function handler(
     return MethodNotAllowed(res)
   }
 
-  const session = await getSession({ req })
+  const session = await getServerSession(req, res, authOptions)
   const { id } = req.query
 
   if (!id || !Number(id)) {

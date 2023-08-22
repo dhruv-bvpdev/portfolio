@@ -1,4 +1,5 @@
-import { getSession } from 'next-auth/react'
+import { getServerSession } from 'next-auth/next'
+import { authOptions } from 'pages/api/auth/[...nextauth]'
 import prisma from '@/lib/prisma'
 import {
   BadRequest,
@@ -17,7 +18,7 @@ export default async function handler(
     return MethodNotAllowed(res)
   }
 
-  const session = await getSession({ req })
+  const session = await getServerSession(req, res, authOptions)
 
   if (req.method === 'GET') {
     if (req.query.count) {
